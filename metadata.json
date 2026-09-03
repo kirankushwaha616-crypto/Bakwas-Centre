@@ -1,0 +1,6 @@
+{
+  "name": "Bakwaas Center",
+  "description": "The Ultimate Time-Waster Portal featuring the Over-Acting Translator, The Blame Generator, and Useless Degree Convocation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

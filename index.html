@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bakwaas Center 🌀 — The Ultimate Time-Waster Portal</title>
+  <meta name="description" content="The Ultimate Time-Waster Portal featuring the Over-Acting Translator, The Blame Generator, and Useless Degree Convocation." />
+  <meta property="og:title" content="Bakwaas Center 🌀 — The Ultimate Time-Waster Portal" />
+  <meta property="og:description" content="The Ultimate Time-Waster Portal featuring the Over-Acting Translator, The Blame Generator, and Useless Degree Convocation." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts: Inter & Plus Jakarta Sans for UI, Cinzel & Great Vibes for Certificate, Courier Prime for Tech, Playfair for Humanities -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Courier+Prime:wght@400;700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" crossorigin="anonymous">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['Cinzel', 'serif'],
+            playfair: ['"Playfair Display"', 'serif'],
+            script: ['"Great Vibes"', 'cursive'],
+            mono: ['"Courier Prime"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom animations & micro-interactions */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.97); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .animate-scale-in {
+      animation: scaleIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Print Styles: ONLY the certificate is visible on print */
+    @media print {
+      body {
+        background: #FFFFFF !important;
+        color: #000000 !important;
+      }
+      body * {
+        visibility: hidden !important;
+      }
+      #certificate-render-zone,
+      #certificate-render-zone * {
+        visibility: visible !important;
+      }
+      #certificate-render-zone {
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+        background: transparent !important;
+      }
+      #certificate-card {
+        box-shadow: none !important;
+        width: 100% !important;
+        max-width: 900px !important;
+        margin: 0 auto !important;
+        page-break-inside: avoid !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-[#F8F9FB] text-[#111827] font-sans antialiased min-h-screen flex flex-col selection:bg-indigo-100 selection:text-indigo-900">
+
+  <!-- Toast Notification Container -->
+  <div id="toast" class="fixed top-5 right-5 z-50 transform -translate-y-12 opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-2 bg-[#111827] text-white text-sm font-medium px-4 py-2.5 rounded-xl shadow-lg">
+    <span id="toast-icon">✓</span>
+    <span id="toast-message">Copied to clipboard!</span>
+  </div>
+
+  <!-- Header Section -->
+  <header class="no-print w-full bg-white border-b border-[#E5E7EB] pt-8 pb-7 px-4 sm:px-6">
+    <div class="max-w-5xl mx-auto text-center">
+      <!-- Warning Badge -->
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-800 border border-amber-200 mb-3 shadow-xs">
+        <span class="text-amber-600">⚠️</span>
+        <span>Warning: Entering this zone may instantly reduce your IQ by 50 points</span>
+      </div>
+
+      <!-- Main Logo & Title -->
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#111827] flex items-center justify-center gap-2">
+        <span>Bakwaas Center</span>
+        <span class="inline-block transition-transform hover:rotate-180 duration-500 cursor-pointer select-none" title="Rotate into the void">🌀</span>
+      </h1>
+
+      <p class="text-base sm:text-lg font-semibold text-indigo-700 mt-1.5 tracking-tight">
+        The Ultimate Time-Waster Portal
+      </p>
+
+      <p class="text-sm sm:text-base text-[#6B7280] mt-2 max-w-xl mx-auto">
+        Three completely unnecessary tools engineered with zero productive value and 100% comedic craft.
+      </p>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 py-8">
+
+    <!-- Tool Navigation Tabs (3 Flagship Modules) -->
+    <nav class="no-print grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-8" aria-label="Tool selection">
+      
+
+
+      <!-- Tab 2: Translator -->
+      <button 
+        id="tab-btn-translator"
+        onclick="switchTab('translator')"
+        class="tab-btn text-left p-4 rounded-2xl border transition-all duration-200 bg-white border-[#E5E7EB] hover:border-purple-300 hover:shadow-sm relative group cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-400"
+        aria-selected="false"
+        role="tab">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-2xl" aria-hidden="true">🎭</span>
+          <span class="font-bold text-sm sm:text-base text-[#111827] group-hover:text-purple-700 transition-colors">Over-Acting Translator</span>
+        </div>
+        <p class="text-xs text-[#6B7280] line-clamp-2">Turn normal sentences into full-blown drama with 10 styles.</p>
+        <span class="active-indicator hidden absolute bottom-1.5 right-3 text-[11px] font-semibold text-purple-600 items-center gap-1">
+          Active <span class="w-1.5 h-1.5 rounded-full bg-purple-600"></span>
+        </span>
+      </button>
+
+      <!-- Tab 3: Blame Generator -->
+      <button 
+        id="tab-btn-blame"
+        onclick="switchTab('blame')"
+        class="tab-btn text-left p-4 rounded-2xl border transition-all duration-200 bg-white border-[#E5E7EB] hover:border-amber-300 hover:shadow-sm relative group cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-400"
+        aria-selected="false"
+        role="tab">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-2xl" aria-hidden="true">🧠</span>
+          <span class="font-bold text-sm sm:text-base text-[#111827] group-hover:text-amber-700 transition-colors">The Blame Generator</span>
+        </div>
+        <p class="text-xs text-[#6B7280] line-clamp-2">Astrophysics & desi astrology have an excuse for everything.</p>
+        <span class="active-indicator hidden absolute bottom-1.5 right-3 text-[11px] font-semibold text-amber-600 items-center gap-1">
+          Active <span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span>
+        </span>
+      </button>
+
+      <!-- Tab 4: Classic Useless Degrees -->
+      <button 
+        id="tab-btn-degree"
+        onclick="switchTab('degree')"
+        class="tab-btn text-left p-4 rounded-2xl border transition-all duration-200 bg-white border-[#E5E7EB] hover:border-emerald-300 hover:shadow-sm relative group cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-400"
+        aria-selected="false"
+        role="tab">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-2xl" aria-hidden="true">📜</span>
+          <span class="font-bold text-sm sm:text-base text-[#111827] group-hover:text-emerald-700 transition-colors">Classic Degrees</span>
+        </div>
+        <p class="text-xs text-[#6B7280] line-clamp-2">10 degree formats with custom live authority signatures.</p>
+        <span class="active-indicator hidden absolute bottom-1.5 right-3 text-[11px] font-semibold text-emerald-600 items-center gap-1">
+          Active <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+        </span>
+      </button>
+
+    </nav>
+
+
+
+
+
+    <!-- ========================================================================= -->
+    <!-- COMPONENT 2: OVER-ACTING TRANSLATOR -->
+    <!-- ========================================================================= -->
+    <section id="panel-translator" class="tool-panel hidden animate-fade-in" role="tabpanel" aria-labelledby="tab-btn-translator">
+      <div class="bg-white rounded-3xl border border-[#E5E7EB] p-6 sm:p-8 shadow-xs">
+        
+        <!-- Header -->
+        <div class="border-b border-[#E5E7EB] pb-5 mb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-purple-50 border border-purple-200 flex items-center justify-center text-xl text-purple-700">
+              🎭
+            </div>
+            <div>
+              <h2 class="text-xl sm:text-2xl font-bold text-[#111827]">Over-Acting Translator</h2>
+              <p class="text-sm text-[#6B7280] mt-0.5">“Because saying ‘I’m hungry’ is simply not dramatic enough.”</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Language Preference Option -->
+        <div class="mb-5 p-4 rounded-xl bg-purple-50/50 border border-purple-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <label for="translator-lang" class="block text-xs font-bold uppercase tracking-wider text-purple-900 mb-0.5">
+              Select Drama Language Style
+            </label>
+            <p class="text-xs text-[#6B7280]">Choose how extreme your over-acting should sound</p>
+          </div>
+          <div class="relative min-w-[220px]">
+            <select 
+              id="translator-lang"
+              onchange="onTranslatorLangChange()"
+              class="w-full px-3.5 py-2.5 rounded-xl border border-purple-200 bg-white text-sm font-semibold text-[#111827] outline-none focus:ring-2 focus:ring-purple-300 transition cursor-pointer appearance-none">
+              <option value="hinglish" selected>💬 Pure Desi Hinglish</option>
+              <option value="bollywood">🎬 Bollywood Melodrama</option>
+              <option value="hindi">📜 Overdramatic Sahityik Hindi</option>
+              <option value="genz">💀 Gen-Z Pure Chaos</option>
+              <option value="fakenews">🚨 Breaking News Flash</option>
+              <option value="royal">👑 Royal Darbari Farmaan</option>
+              <option value="corporate">📊 Corporate Escalation</option>
+              <option value="villain">🦹 Villain Monologue</option>
+              <option value="newsanchor">🎙️ Prime-Time Screaming Anchor</option>
+              <option value="philosophical">🌌 Cosmic Existential Crisis</option>
+            </select>
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-purple-600">
+              <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="space-y-4">
+          <div>
+            <label for="translator-input" class="block text-xs font-semibold uppercase tracking-wider text-[#6B7280] mb-2">
+              Normal Human Sentence
+            </label>
+            <div class="relative">
+              <textarea 
+                id="translator-input"
+                rows="3"
+                maxlength="300"
+                placeholder="Type something painfully normal… (e.g. 'I'm hungry', 'I'm late', 'My phone died')"
+                class="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] focus:border-purple-500 focus:ring-2 focus:ring-purple-100 text-[#111827] placeholder:text-gray-400 text-sm sm:text-base outline-none resize-none transition"
+                oninput="handleTranslatorInput(this)"></textarea>
+            </div>
+            
+            <div class="flex items-center justify-between mt-2 text-xs text-[#6B7280]">
+              <span id="translator-tip" class="italic text-gray-500">Normal sentence detected. Preparing emotional trauma…</span>
+              <span id="translator-counter" class="font-medium">0 / 300</span>
+            </div>
+          </div>
+
+          <!-- Quick Try Sample Chips -->
+          <div>
+            <span class="text-xs font-medium text-gray-500 mr-2">Try these:</span>
+            <div class="inline-flex flex-wrap gap-1.5 mt-1.5">
+              <button onclick="setTranslatorSample('I\'m hungry')" class="text-xs px-2.5 py-1 rounded-lg bg-gray-100 hover:bg-purple-50 hover:text-purple-700 text-gray-700 border border-gray-200 transition cursor-pointer">"I'm hungry"</button>
+              <button onclick="setTranslatorSample('I\'m late')" class="text-xs px-2.5 py-1 rounded-lg bg-gray-100 hover:bg-purple-50 hover:text-purple-700 text-gray-700 border border-gray-200 transition cursor-pointer">"I'm late"</button>
+              <button onclick="setTranslatorSample('My phone died')" class="text-xs px-2.5 py-1 rounded-lg bg-gray-100 hover:bg-purple-50 hover:text-purple-700 text-gray-700 border border-gray-200 transition cursor-pointer">"My phone died"</button>
+              <button onclick="setTranslatorSample('I didn\'t study')" class="text-xs px-2.5 py-1 rounded-lg bg-gray-100 hover:bg-purple-50 hover:text-purple-700 text-gray-700 border border-gray-200 transition cursor-pointer">"I didn't study"</button>
+              <button onclick="setTranslatorSample('I need money')" class="text-xs px-2.5 py-1 rounded-lg bg-gray-100 hover:bg-purple-50 hover:text-purple-700 text-gray-700 border border-gray-200 transition cursor-pointer">"I need money"</button>
+            </div>
+          </div>
+
+          <!-- Action Button -->
+          <div class="pt-2">
+            <button 
+              id="btn-translate"
+              onclick="translateDramatically()"
+              class="w-full sm:w-auto px-6 py-3 rounded-xl bg-purple-700 hover:bg-purple-800 text-white font-semibold text-sm sm:text-base shadow-sm hover:shadow transition flex items-center justify-center gap-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-400 active:scale-[0.99]">
+              <span>Make it Dramatic! 🎬</span>
+            </button>
+            <p id="translator-error" class="hidden text-red-500 text-xs mt-2 font-medium">Please enter a sentence first, Bollywood director! 🎬</p>
+          </div>
+        </div>
+
+        <!-- Output Card / Result -->
+        <div class="mt-8 pt-6 border-t border-[#E5E7EB]">
+          <div id="translator-output-empty" class="text-center py-8 px-4 rounded-xl border border-dashed border-gray-200 bg-gray-50/50">
+            <span class="text-3xl block mb-2 opacity-70">🎬</span>
+            <p class="text-sm font-medium text-gray-500">Your dramatic masterpiece will appear here.</p>
+          </div>
+
+          <div id="translator-output-box" class="hidden animate-scale-in">
+            <div class="p-5 sm:p-6 rounded-2xl bg-purple-50/60 border border-purple-200 relative">
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="text-xs font-bold uppercase tracking-wider text-purple-700 flex items-center gap-1.5">
+                  <span>🎬</span> Your Dramatic Version
+                </span>
+                <span id="translator-lang-badge" class="text-[11px] px-2 py-0.5 rounded bg-purple-100 text-purple-800 font-semibold">100% Shudh Bollywood Drama</span>
+              </div>
+
+              <!-- Output Text Display -->
+              <div id="translator-result-text" class="text-base sm:text-lg font-medium text-[#111827] leading-relaxed my-2 py-1">
+                <!-- Text injected via JS -->
+              </div>
+
+              <!-- Output Controls -->
+              <div class="flex flex-wrap items-center gap-2.5 mt-5 pt-3 border-t border-purple-200/60">
+                <button 
+                  id="btn-copy-drama"
+                  onclick="copyDramaticText()"
+                  class="px-4 py-2 rounded-lg bg-white hover:bg-gray-50 text-[#111827] border border-gray-300 font-medium text-xs sm:text-sm shadow-xs transition flex items-center gap-1.5 cursor-pointer">
+                  <span>📋</span> <span id="copy-drama-label">Copy Drama</span>
+                </button>
+
+                <button 
+                  onclick="translateDramatically(true)"
+                  class="px-4 py-2 rounded-lg bg-purple-100/70 hover:bg-purple-200/70 text-purple-800 font-medium text-xs sm:text-sm transition flex items-center gap-1.5 cursor-pointer">
+                  <span>↻</span> <span>Try Another Variation</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- COMPONENT 3: THE BLAME GENERATOR -->
+    <!-- ========================================================================= -->
+    <section id="panel-blame" class="tool-panel hidden animate-fade-in" role="tabpanel" aria-labelledby="tab-btn-blame">
+      <div class="bg-white rounded-3xl border border-[#E5E7EB] p-6 sm:p-8 shadow-xs">
+        
+        <!-- Header -->
+        <div class="border-b border-[#E5E7EB] pb-5 mb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-xl text-amber-700">
+              🧠
+            </div>
+            <div>
+              <h2 class="text-xl sm:text-2xl font-bold text-[#111827]">The Blame Generator</h2>
+              <p class="text-sm text-[#6B7280] mt-0.5">“Why take responsibility when science & astrology can take it for you?”</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Language Preference Option -->
+        <div class="mb-5 p-4 rounded-xl bg-amber-50/50 border border-amber-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <label for="blame-lang" class="block text-xs font-bold uppercase tracking-wider text-amber-950 mb-0.5">
+              Excuse Language Preference
+            </label>
+            <p class="text-xs text-[#6B7280]">Select your favorite comedic excuse flavor</p>
+          </div>
+          <div class="relative min-w-[220px]">
+            <select 
+              id="blame-lang"
+              onchange="onBlameLangChange()"
+              class="w-full px-3.5 py-2.5 rounded-xl border border-amber-200 bg-white text-sm font-semibold text-[#111827] outline-none focus:ring-2 focus:ring-amber-300 transition cursor-pointer appearance-none">
+              <option value="hinglish" selected>💬 Pure Desi Hinglish</option>
+              <option value="english">🌍 English (Quantum & Absurd Science)</option>
+              <option value="hindi">🇮🇳 Hindi (Desi Jyotish & Vaastu Bahane)</option>
+            </select>
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-amber-600">
+              <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Area -->
+        <div class="space-y-5">
+          <div>
+            <label for="blame-category" class="block text-xs font-semibold uppercase tracking-wider text-[#6B7280] mb-2">
+              Choose Your Disaster:
+            </label>
+            <div class="relative">
+              <select 
+                id="blame-category"
+                class="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] bg-white text-[#111827] font-medium text-sm sm:text-base outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-100 transition appearance-none cursor-pointer">
+                <option value="office">Office / Work Delay</option>
+                <option value="messages">Unanswered Messages</option>
+                <option value="homework">Missing Homework</option>
+                <option value="late">Being Late</option>
+                <option value="forgot">Forgot Something</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
+                <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
+              </div>
+            </div>
+            <p class="text-xs text-[#6B7280] mt-2 italic">Accountability is currently unavailable.</p>
+          </div>
+
+          <!-- Action Button -->
+          <div>
+            <button 
+              id="btn-blame"
+              onclick="generateBlame()"
+              class="w-full sm:w-auto px-6 py-3 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-semibold text-sm sm:text-base shadow-sm hover:shadow transition flex items-center justify-center gap-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-400 active:scale-[0.99]">
+              <span>Shift the Blame 💥</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Output Card / Result -->
+        <div class="mt-8 pt-6 border-t border-[#E5E7EB]">
+          <div id="blame-output-empty" class="text-center py-8 px-4 rounded-xl border border-dashed border-gray-200 bg-gray-50/50">
+            <span class="text-3xl block mb-2 opacity-70">🧠</span>
+            <p class="text-sm font-medium text-gray-500">Your completely legitimate excuse will appear here.</p>
+          </div>
+
+          <div id="blame-output-box" class="hidden animate-scale-in">
+            <div class="p-5 sm:p-6 rounded-2xl bg-amber-50/60 border border-amber-200 relative">
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-800 flex items-center gap-1.5">
+                  <span>📜</span> Official Explanation™
+                </span>
+                <span id="blame-lang-badge" class="text-[11px] px-2 py-0.5 rounded bg-amber-100 text-amber-900 font-semibold">100% Peer-Unreviewed</span>
+              </div>
+
+              <!-- Excuse Text Display -->
+              <div class="my-3">
+                <p id="blame-result-text" class="text-base sm:text-lg font-medium text-[#111827] leading-relaxed italic">
+                  <!-- Excuse injected via JS -->
+                </p>
+                <div class="mt-3 inline-flex items-center gap-1.5 text-xs text-amber-900/80 font-medium bg-amber-100/60 px-2.5 py-1 rounded-md">
+                  <span>🔬</span>
+                  <span id="blame-credibility-tag">Scientific credibility: Absolutely questionable.</span>
+                </div>
+              </div>
+
+              <!-- Controls -->
+              <div class="flex flex-wrap items-center gap-2.5 mt-5 pt-3 border-t border-amber-200/60">
+                <button 
+                  id="btn-copy-blame"
+                  onclick="copyBlameText()"
+                  class="px-4 py-2 rounded-lg bg-white hover:bg-gray-50 text-[#111827] border border-gray-300 font-medium text-xs sm:text-sm shadow-xs transition flex items-center gap-1.5 cursor-pointer">
+                  <span>📋</span> <span id="copy-blame-label">Copy Excuse</span>
+                </button>
+
+                <button 
+                  onclick="generateBlame()"
+                  class="px-4 py-2 rounded-lg bg-amber-100 hover:bg-amber-200 text-amber-900 font-medium text-xs sm:text-sm transition flex items-center gap-1.5 cursor-pointer">
+                  <span>🔄</span> <span>Give Me Another</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- COMPONENT 4: CLASSIC USELESS DEGREE CONVOCATION -->
+    <!-- ========================================================================= -->
+    <section id="panel-degree" class="tool-panel hidden animate-fade-in" role="tabpanel" aria-labelledby="tab-btn-degree">
+      <div class="bg-white rounded-3xl border border-[#E5E7EB] p-6 sm:p-8 shadow-xs">
+        
+        <!-- Header -->
+        <div class="border-b border-[#E5E7EB] pb-5 mb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-xl text-emerald-700">
+              📜
+            </div>
+            <div>
+              <h2 class="text-xl sm:text-2xl font-bold text-[#111827]">Classic Useless Degree Convocation</h2>
+              <p class="text-sm text-[#6B7280] mt-0.5">“10 bespoke degree diploma formats with real-time custom authority signatory typing.”</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Area (Hidden on Print) -->
+        <div id="degree-form-section" class="no-print space-y-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            
+            <!-- User Name Input -->
+            <div>
+              <label for="degree-name" class="block text-xs font-semibold uppercase tracking-wider text-[#6B7280] mb-2">
+                1. Your Name
+              </label>
+              <input 
+                type="text" 
+                id="degree-name"
+                maxlength="50"
+                placeholder="Enter candidate's name"
+                class="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] text-[#111827] text-sm sm:text-base outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition"
+                oninput="handleDegreeLiveUpdate()"
+                onkeydown="if(event.key === 'Enter') generateCertificate()" />
+            </div>
+
+            <!-- Custom Accessible Degree Dropdown (Mobile-First) -->
+            <div>
+              <label class="block text-xs font-semibold uppercase tracking-wider text-[#6B7280] mb-2">
+                2. Select Degree
+              </label>
+              <div id="custom-degree-dropdown" class="relative">
+                <button 
+                  type="button"
+                  id="degree-dropdown-trigger"
+                  onclick="toggleDegreeDropdown(event)"
+                  class="w-full px-4 py-3 rounded-xl border border-[#E5E7EB] bg-white text-[#111827] font-medium text-sm sm:text-base outline-none hover:border-emerald-400 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition cursor-pointer flex items-center justify-between shadow-2xs">
+                  <!-- Injected via JS -->
+                </button>
+
+                <!-- Popover Menu with 10 Degrees -->
+                <div 
+                  id="degree-dropdown-menu" 
+                  role="listbox"
+                  class="hidden absolute z-30 left-0 right-0 top-full mt-2 bg-white rounded-2xl border border-gray-200 shadow-xl p-2 max-h-80 overflow-y-auto space-y-1">
+                  <!-- Injected via JS -->
+                </div>
+              </div>
+            </div>
+
+            <!-- SIGNATURE INPUT OPTION -->
+            <div>
+              <label for="degree-sign-by" class="block text-xs font-semibold uppercase tracking-wider text-emerald-800 mb-2 flex items-center gap-1.5">
+                <span>✍️</span> 3. Signatory
+              </label>
+              <input 
+                type="text" 
+                id="degree-sign-by"
+                maxlength="50"
+                placeholder="e.g. Papa, Boss..."
+                class="w-full px-4 py-3 rounded-xl border border-emerald-300 bg-emerald-50/30 text-[#111827] text-sm sm:text-base outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-200 transition"
+                oninput="handleSignatureInput(this)"
+                onkeydown="if(event.key === 'Enter') generateCertificate()" />
+            </div>
+
+            <!-- PHOTO UPLOAD OPTION -->
+            <div>
+              <label for="degree-photo" class="block text-xs font-semibold uppercase tracking-wider text-[#6B7280] mb-2 flex items-center gap-1.5">
+                <span>📸</span> 4. Upload Photo
+              </label>
+              <input 
+                type="file" 
+                id="degree-photo"
+                accept="image/*"
+                class="w-full px-4 py-2.5 rounded-xl border border-[#E5E7EB] bg-white text-[#111827] text-sm file:mr-3 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100 outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition cursor-pointer"
+                onchange="handlePhotoUpload(event)" />
+            </div>
+
+          </div>
+
+          <div class="pt-1 flex flex-wrap items-center gap-3">
+            <button 
+              id="btn-graduate"
+              onclick="generateCertificate()"
+              class="w-full sm:w-auto px-6 py-3 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-sm sm:text-base shadow-sm hover:shadow transition flex items-center justify-center gap-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-400 active:scale-[0.99]">
+              <span>Graduate Now 🎓</span>
+            </button>
+            <button 
+              type="button"
+              onclick="downloadCertificatePNG()"
+              class="w-full sm:w-auto px-5 py-3 rounded-xl bg-white hover:bg-emerald-50 text-emerald-800 font-semibold text-sm sm:text-base border border-emerald-300 shadow-2xs hover:shadow-xs transition flex items-center justify-center gap-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-400 active:scale-[0.99]">
+              <span>📥 Download Certificate</span>
+            </button>
+            <span class="text-xs text-[#6B7280] italic">Enter name & sign to view and download your high-res certificate!</span>
+          </div>
+          <p id="degree-error" class="hidden text-amber-700 text-xs font-medium">Please enter your name or type who should sign! 🎓</p>
+        </div>
+
+        <!-- Output Card / Empty State -->
+        <div class="mt-8 pt-6 border-t border-[#E5E7EB]">
+          
+          <div id="certificate-empty" class="text-center py-8 px-4 rounded-xl border border-dashed border-gray-200 bg-gray-50/50">
+            <span class="text-3xl block mb-2 opacity-70">📜</span>
+            <p class="text-sm font-medium text-gray-500">Your prestigious useless degree awaits.</p>
+          </div>
+
+          <!-- The Certificate Render Zone -->
+          <div id="certificate-render-zone" class="hidden animate-scale-in">
+            
+            <!-- Controls Bar on top of certificate (Hidden during print) -->
+            <div class="no-print flex flex-wrap items-center justify-between gap-3 mb-4 p-3.5 bg-emerald-50 rounded-2xl border border-emerald-200 shadow-2xs">
+              <div class="text-xs font-semibold text-emerald-950 flex items-center gap-1.5">
+                <span>🎉</span> Degree conferred with authentic custom format & signature!
+              </div>
+              <div class="flex flex-wrap items-center gap-2">
+                <button 
+                  id="btn-download-png"
+                  onclick="downloadCertificatePNG()"
+                  class="px-4 py-2 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs sm:text-sm shadow-xs transition flex items-center gap-1.5 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-400">
+                  <span>📥</span> <span>Download PNG</span>
+                </button>
+                <button 
+                  id="btn-download-pdf"
+                  onclick="downloadCertificatePDF()"
+                  class="px-4 py-2 rounded-xl bg-white hover:bg-emerald-50 text-emerald-800 font-bold text-xs sm:text-sm border border-emerald-300 shadow-2xs transition flex items-center gap-1.5 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-400">
+                  <span>📄</span> <span>Download PDF</span>
+                </button>
+                <button 
+                  onclick="printCertificate()"
+                  class="px-3.5 py-2 rounded-xl bg-emerald-100 hover:bg-emerald-200 text-emerald-900 font-semibold text-xs sm:text-sm border border-emerald-200 transition flex items-center gap-1.5 cursor-pointer focus:outline-none">
+                  <span>🖨️</span> <span>Print</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- DYNAMIC CERTIFICATE CONTAINER (Populated with degree-specific format) -->
+            <div id="certificate-content-wrapper">
+              <!-- Rendered via JS -->
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="no-print w-full bg-white border-t border-[#E5E7EB] py-6 px-4 text-center mt-auto">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-xs sm:text-sm text-[#6B7280]">
+        <strong class="text-[#111827] font-semibold">Bakwaas Center</strong> © 2026 — Making productivity optional since today.
+      </p>
+      <p class="text-[11px] text-gray-400 mt-1">
+        Disclaimer: All certificates generated on this website are fictional parodies created exclusively for comedic and entertainment purposes. Zero academic, legal, or institutional credentials are conferred.
+      </p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT APPLICATION LOGIC -->
+  <script type="module" src="/src/appLogic.js"></script>
+</body>
+</html>
