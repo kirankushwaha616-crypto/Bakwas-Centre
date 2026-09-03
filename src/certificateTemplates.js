@@ -65,7 +65,7 @@ export const DEGREES_LIST = [
 ];
 
 export function renderCertificateHTML(degreeTitle, candidateName, customSigner, certId, certDate, photoUrl) {
-  const photoHTML = photoUrl ? `\n    <div class="absolute top-4 right-4 sm:top-8 sm:right-8 w-20 h-24 sm:w-24 sm:h-28 rounded border-4 shadow-md bg-white z-10 overflow-hidden opacity-95" style="border-color: inherit">\n      <img src="${photoUrl}" alt="Candidate Photo" class="w-full h-full object-cover" />\n    </div>\n  ` : "";
+  const photoHTML = photoUrl ? `\n    <div class="absolute top-4 right-4 sm:top-8 sm:right-8 w-20 h-24 sm:w-24 sm:h-28 rounded border-4 shadow-md bg-white z-10 overflow-hidden opacity-95" style="border-color: inherit">\n      <img src="${photoUrl}" alt="Degree Recipient Candidate Photo" class="w-full h-full object-cover" />\n    </div>\n  ` : "";
   const safeName = candidateName || "The Unsung Legend";
   
   // 1. PhD in Reel Scrolling (Royal Academic Diploma)
