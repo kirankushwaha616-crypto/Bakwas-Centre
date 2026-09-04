@@ -12,7 +12,8 @@ import { jsPDF } from 'jspdf';
 
 // Global State
 window.AppState = {
-  activeTab: 'translator', // Start on the Over-Acting Translator
+  currentRoute: '/',
+  activeTab: 'translator',
   currentDegree: DEGREES_LIST[0],
   translatorStyle: 'hinglish',
   blameLang: 'hinglish',
@@ -20,6 +21,225 @@ window.AppState = {
   lastBlameIdx: -1,
   isDropdownOpen: false,
   candidatePhoto: null
+};
+
+// -----------------------------------------------------------------------------
+// CANONICAL ROUTES & PER-ROUTE SEO METADATA
+// -----------------------------------------------------------------------------
+export const ROUTES_CONFIG = {
+  '/': {
+    id: 'home',
+    title: 'Bakwaas Center – Funny Online Tools & Time-Wasting Games',
+    description: 'Bakwaas Center features funny online tools and time-wasting fun tools including the Over-Acting Translator, Blame Generator, and Useless Degree Convocation.',
+    canonical: 'https://bakwas-centre.vercel.app/',
+    panelId: 'panel-home',
+    tabId: null
+  },
+  '/translator': {
+    id: 'translator',
+    title: 'Over-Acting Translator – Bakwaas Center',
+    description: 'Turn normal, boring sentences into full-blown dramatic Bollywood dialogues, daily soap reactions, and cinematic punchlines with 10 acting styles.',
+    canonical: 'https://bakwas-centre.vercel.app/translator',
+    panelId: 'panel-translator',
+    tabId: 'translator'
+  },
+  '/blame-generator': {
+    id: 'blame',
+    title: 'Blame Generator – Bakwaas Center',
+    description: 'Scientifically crafted and astrologically peer-unreviewed excuses to deflect all responsibility for lateness, laziness, and daily failures.',
+    canonical: 'https://bakwas-centre.vercel.app/blame-generator',
+    panelId: 'panel-blame',
+    tabId: 'blame'
+  },
+  '/useless-degree': {
+    id: 'degree',
+    title: 'Useless Degree Generator – Bakwaas Center',
+    description: 'Graduate in Overthinking, Meme Analysis, or Sarcasm. Create, customize, and download personalized high-resolution parody degree certificates.',
+    canonical: 'https://bakwas-centre.vercel.app/useless-degree',
+    panelId: 'panel-degree',
+    tabId: 'degree'
+  }
+};
+
+function normalizeRoute(rawPath) {
+  if (!rawPath) return '/';
+  let path = rawPath.toLowerCase().trim();
+  if (path.length > 1 && path.endsWith('/')) {
+    path = path.slice(0, -1);
+  }
+  if (path === '' || path === '/index.html') {
+    path = '/';
+  }
+  return ROUTES_CONFIG[path] ? path : '/';
+}
+
+function updateRouteSEO(routeKey) {
+  const config = ROUTES_CONFIG[routeKey] || ROUTES_CONFIG['/'];
+
+  // 1. Document Title
+  document.title = config.title;
+
+  // 2. Meta Description
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) {
+    metaDesc.setAttribute('content', config.description);
+  }
+
+  // 3. Single Canonical Link
+  let canonicalEl = document.querySelector('link[rel="canonical"]');
+  if (!canonicalEl) {
+    canonicalEl = document.createElement('link');
+    canonicalEl.setAttribute('rel', 'canonical');
+    document.head.appendChild(canonicalEl);
+  }
+  canonicalEl.setAttribute('href', config.canonical);
+
+  // 4. Open Graph Tags
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) ogTitle.setAttribute('content', config.title);
+
+  const ogDesc = document.querySelector('meta[property="og:description"]');
+  if (ogDesc) ogDesc.setAttribute('content', config.description);
+
+  const ogUrl = document.querySelector('meta[property="og:url"]');
+  if (ogUrl) ogUrl.setAttribute('content', config.canonical);
+
+  // 5. Twitter Card Tags
+  const twTitle = document.querySelector('meta[name="twitter:title"]');
+  if (twTitle) twTitle.setAttribute('content', config.title);
+
+  const twDesc = document.querySelector('meta[name="twitter:description"]');
+  if (twDesc) twDesc.setAttribute('content', config.description);
+
+  const twUrl = document.querySelector('meta[name="twitter:url"]');
+  if (twUrl) twUrl.setAttribute('content', config.canonical);
+}
+
+// -----------------------------------------------------------------------------
+// ROUTE NAVIGATION & TAB MANAGEMENT
+// -----------------------------------------------------------------------------
+window.applyRoute = function(routePath, shouldScroll = false) {
+  const normalized = normalizeRoute(routePath);
+  const config = ROUTES_CONFIG[normalized];
+
+  window.AppState.currentRoute = normalized;
+  window.AppState.activeTab = config.tabId;
+
+  // 1. Update SEO tags
+  updateRouteSEO(normalized);
+
+  // 2. Toggle Panel Visibility
+  const panels = ['panel-home', 'panel-translator', 'panel-blame', 'panel-degree'];
+  panels.forEach(pid => {
+    const el = document.getElementById(pid);
+    if (!el) return;
+    if (pid === config.panelId) {
+      el.classList.remove('hidden');
+      el.classList.add('animate-fade-in');
+    } else {
+      el.classList.add('hidden');
+      el.classList.remove('animate-fade-in');
+    }
+  });
+
+  // 3. Update Navigation Tab Visual States
+  const tabs = ['translator', 'blame', 'degree'];
+  tabs.forEach(t => {
+    const btn = document.getElementById(`tab-btn-${t}`);
+    const indicator = btn ? btn.querySelector('.active-indicator') : null;
+
+    if (t === config.tabId) {
+      if (btn) {
+        btn.setAttribute('aria-selected', 'true');
+        btn.classList.remove('border-[#E5E7EB]');
+        if (t === 'translator') {
+          btn.classList.add('border-purple-400', 'ring-2', 'ring-purple-200', 'shadow-xs');
+        } else if (t === 'blame') {
+          btn.classList.add('border-amber-400', 'ring-2', 'ring-amber-200', 'shadow-xs');
+        } else {
+          btn.classList.add('border-emerald-400', 'ring-2', 'ring-emerald-200', 'shadow-xs');
+        }
+      }
+      if (indicator) indicator.classList.remove('hidden');
+    } else {
+      if (btn) {
+        btn.setAttribute('aria-selected', 'false');
+        btn.classList.remove(
+          'border-purple-400', 'ring-purple-200',
+          'border-amber-400', 'ring-amber-200',
+          'border-emerald-400', 'ring-emerald-200',
+          'ring-2', 'shadow-xs'
+        );
+        btn.classList.add('border-[#E5E7EB]');
+      }
+      if (indicator) indicator.classList.add('hidden');
+    }
+  });
+
+  // 4. Smooth scrolling if navigating to a specific tool
+  if (shouldScroll && normalized !== '/') {
+    const targetEl = document.getElementById(config.panelId);
+    if (targetEl) {
+      targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+};
+
+window.navigateToRoute = function(routePath, shouldScroll = true) {
+  const normalized = normalizeRoute(routePath);
+  if (window.location.pathname !== normalized) {
+    window.history.pushState({ route: normalized }, '', normalized);
+  }
+  window.applyRoute(normalized, shouldScroll);
+};
+
+window.handleRouteLink = function(event, routePath) {
+  if (event.metaKey || event.ctrlKey || event.shiftKey || event.button === 1) {
+    return;
+  }
+  event.preventDefault();
+  window.navigateToRoute(routePath, true);
+};
+
+// Backward-compatible switchTab method
+window.switchTab = function(tabId) {
+  const routeMap = {
+    'translator': '/translator',
+    'blame': '/blame-generator',
+    'degree': '/useless-degree'
+  };
+  const targetRoute = routeMap[tabId] || '/';
+  window.navigateToRoute(targetRoute, false);
+};
+
+// Handle Browser Back and Forward buttons
+window.addEventListener('popstate', () => {
+  window.applyRoute(window.location.pathname, false);
+});
+
+window.openRandomBakwaas = function() {
+  const toolRoutes = ['/translator', '/blame-generator', '/useless-degree'];
+  const candidates = toolRoutes.filter(r => r !== window.AppState.currentRoute);
+  const picked = candidates.length > 0
+    ? candidates[Math.floor(Math.random() * candidates.length)]
+    : toolRoutes[Math.floor(Math.random() * toolRoutes.length)];
+
+  window.navigateToRoute(picked, true);
+
+  if (picked === '/blame-generator') {
+    window.generateBlame();
+  } else if (picked === '/translator') {
+    const samples = ["I'm hungry", "I'm late", "My phone died", "I didn't study", "I need money"];
+    const s = samples[Math.floor(Math.random() * samples.length)];
+    window.setTranslatorSample(s);
+  }
+
+  const toolNames = {
+    '/translator': 'Over-Acting Translator 🎭',
+    '/blame-generator': 'The Blame Generator 🧠',
+    '/useless-degree': 'Useless Degree Convocation 📜'
+  };
+  showToast(`Random Bakwaas: Opened ${toolNames[picked]}! 🎲`);
 };
 
 window.handlePhotoUpload = function(event) {
@@ -37,45 +257,50 @@ window.handlePhotoUpload = function(event) {
   }
 };
 
-// -----------------------------------------------------------------------------
-// TAB SWITCHING
-// -----------------------------------------------------------------------------
-window.switchTab = function(tabId) {
-  window.AppState.activeTab = tabId;
-  const tabs = ['translator', 'blame', 'degree'];
-
-  tabs.forEach(t => {
-    const btn = document.getElementById(`tab-btn-${t}`);
-    const panel = document.getElementById(`panel-${t}`);
-    const indicator = btn ? btn.querySelector('.active-indicator') : null;
-
-    if (t === tabId) {
-      if (panel) {
-        panel.classList.remove('hidden');
-        panel.classList.add('animate-fade-in');
-      }
-      if (btn) {
-        btn.setAttribute('aria-selected', 'true');
-        btn.classList.remove('border-[#E5E7EB]');
-
-        if (t === 'translator') {
-          btn.classList.add('border-purple-300', 'ring-2', 'ring-purple-100');
-        } else if (t === 'blame') {
-          btn.classList.add('border-amber-300', 'ring-2', 'ring-amber-100');
-        } else {
-          btn.classList.add('border-emerald-300', 'ring-2', 'ring-emerald-100');
-        }
-      }
-      if (indicator) indicator.classList.remove('hidden');
-    } else {
-      if (panel) panel.classList.add('hidden');
-      if (btn) {
-        btn.setAttribute('aria-selected', 'false');
-        btn.className = 'tab-btn text-left p-4 rounded-2xl border transition-all duration-200 bg-white border-[#E5E7EB] hover:shadow-sm relative group cursor-pointer focus:outline-none';
-      }
-      if (indicator) indicator.classList.add('hidden');
+window.fixMyBoredom = function() {
+  const recommendations = [
+    {
+      tool: 'translator',
+      badge: 'Drama Prescription 🎭',
+      msg: 'Your normal human sentences are tragically unexciting. Turn a boring line into an Oscar-worthy Bollywood monologue right now!',
+      btnText: 'Open Over-Acting Translator →'
+    },
+    {
+      tool: 'blame',
+      badge: 'Responsibility Deflector 🧠',
+      msg: 'Facing a deadline or late arrival? Deflect full responsibility onto quantum physics or retrograde astrology immediately!',
+      btnText: 'Generate Scientific Excuse →'
+    },
+    {
+      tool: 'degree',
+      badge: 'Academic Imposter 📜',
+      msg: 'Academic life is exhausting. Award yourself a PhD in Reel Scrolling with an official custom authority signature!',
+      btnText: 'Confer Your Useless Degree →'
     }
-  });
+  ];
+
+  const picked = recommendations[Math.floor(Math.random() * recommendations.length)];
+  const resultCard = document.getElementById('boredom-result');
+  const badgeEl = document.getElementById('boredom-badge');
+  const msgEl = document.getElementById('boredom-message');
+  const actionBtn = document.getElementById('boredom-action-btn');
+
+  if (resultCard && badgeEl && msgEl && actionBtn) {
+    badgeEl.textContent = picked.badge;
+    msgEl.textContent = picked.msg;
+    actionBtn.innerHTML = `<span>${picked.btnText}</span>`;
+    actionBtn.onclick = () => {
+      window.switchTab(picked.tool);
+      const panel = document.getElementById(`panel-${picked.tool}`);
+      if (panel) {
+        panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
+
+    resultCard.classList.remove('hidden');
+    resultCard.classList.add('animate-scale-in');
+    resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
 };
 
 // -----------------------------------------------------------------------------
@@ -176,6 +401,17 @@ window.copyDramaticText = function() {
       if (copyLabel) copyLabel.textContent = "Copy Drama";
     }, 2000);
   });
+};
+
+window.shareDramaticText = function() {
+  const text = document.getElementById('translator-result-text')?.textContent;
+  if (!text) return;
+  const shareData = {
+    title: 'Over-Acting Translator – Bakwaas Center',
+    text: `"${text}"\n\nTranslated with 100% drama on Bakwaas Center:`,
+    url: 'https://bakwas-centre.vercel.app/translator'
+  };
+  shareHelper(shareData, 'share-drama-label', 'Share Drama');
 };
 
 // -----------------------------------------------------------------------------
@@ -342,6 +578,17 @@ window.copyBlameText = function() {
       if (copyLabel) copyLabel.textContent = "Copy Excuse";
     }, 2000);
   });
+};
+
+window.shareBlameText = function() {
+  const text = document.getElementById('blame-result-text')?.textContent;
+  if (!text) return;
+  const shareData = {
+    title: 'The Blame Generator – Bakwaas Center',
+    text: `"${text}"\n\nOfficial excuse provided by Bakwaas Center:`,
+    url: 'https://bakwas-centre.vercel.app/blame-generator'
+  };
+  shareHelper(shareData, 'share-blame-label', 'Share Excuse');
 };
 
 // -----------------------------------------------------------------------------
@@ -671,9 +918,52 @@ window.printCertificate = function() {
   window.print();
 };
 
+window.shareDegreeCertificate = function() {
+  const name = document.getElementById('degree-name')?.value?.trim() || 'A Distinguished Scholar';
+  const degree = window.AppState.currentDegree?.title || 'Useless Degree';
+  const signBy = document.getElementById('degree-sign-by')?.value?.trim() || window.AppState.currentDegree?.authoritySignature?.name || 'Authority';
+
+  const shareData = {
+    title: 'Useless Degree – Bakwaas Center',
+    text: `🎓 Official Parody Degree:\n${name} has graduated with a ${degree}, signed by ${signBy} on Bakwaas Center!`,
+    url: 'https://bakwas-centre.vercel.app/useless-degree'
+  };
+  shareHelper(shareData, 'share-degree-label', 'Share Degree');
+};
+
 // -----------------------------------------------------------------------------
-// UTILITIES
+// UTILITIES & SHARING
 // -----------------------------------------------------------------------------
+function shareHelper(shareData, btnLabelId, defaultLabel) {
+  if (navigator.share && window.isSecureContext) {
+    navigator.share(shareData)
+      .then(() => {
+        showToast("Shared successfully! 🎉");
+      })
+      .catch((err) => {
+        if (err.name !== 'AbortError') {
+          fallbackShareCopy(shareData, btnLabelId, defaultLabel);
+        }
+      });
+  } else {
+    fallbackShareCopy(shareData, btnLabelId, defaultLabel);
+  }
+}
+
+function fallbackShareCopy(shareData, btnLabelId, defaultLabel) {
+  const formatted = `${shareData.text}\n${shareData.url}`;
+  copyTextHelper(formatted, () => {
+    if (btnLabelId) {
+      const el = document.getElementById(btnLabelId);
+      if (el) el.textContent = "Link Copied! ✓";
+      setTimeout(() => {
+        if (el && defaultLabel) el.textContent = defaultLabel;
+      }, 2000);
+    }
+    showToast("Share text & link copied to clipboard! 📋");
+  });
+}
+
 function copyTextHelper(text, onSuccess) {
   if (navigator.clipboard && window.isSecureContext) {
     navigator.clipboard.writeText(text).then(onSuccess).catch(() => fallbackCopy(text, onSuccess));
@@ -720,5 +1010,6 @@ function showToast(msg) {
 // -----------------------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
   window.initCustomDegreeDropdown();
-  window.switchTab('translator'); // Start with the Over-Acting Translator
+  // Hydrate initial view and per-route SEO from the browser's current URL
+  window.applyRoute(window.location.pathname, false);
 });
