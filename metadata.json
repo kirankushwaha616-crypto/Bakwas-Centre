@@ -1,6 +1,6 @@
 {
   "name": "Bakwaas Center",
-  "description": "Bakwaas Center features funny online tools and time-wasting fun tools including the Over-Acting Translator, Blame Generator, and Useless Degree Convocation.",
+  "description": "Bakwaas Center features funny online tools and time-wasting fun including Over-Acting Translator, Blame Generator, Useless Degree, Excuse Generator, Roast Generator, Random Life Advice, Overthinking Spiral, and Fake Job Titles.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

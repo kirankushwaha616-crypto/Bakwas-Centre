@@ -144,10 +144,10 @@
       </div>
 
       <!-- Main Logo & Brand Title -->
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#111827] flex items-center justify-center gap-2.5">
+      <div class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#111827] flex items-center justify-center gap-2.5">
         <a href="/" onclick="handleRouteLink(event, '/')" class="hover:opacity-90 transition-opacity">Bakwaas Center</a>
         <span class="inline-block transition-transform hover:rotate-180 duration-500 cursor-pointer select-none" title="Rotate into the void" aria-hidden="true">🌀</span>
-      </h1>
+      </div>
 
       <!-- Main Tagline -->
       <p class="text-lg sm:text-xl font-bold text-indigo-700 mt-2 tracking-tight">
@@ -205,15 +205,15 @@
       </div>
     </aside>
 
-    <!-- Tool Navigation Tabs (3 Flagship Modules with Crawlable URLs) -->
-    <nav id="tools-nav" class="no-print grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 mb-8" aria-label="Funny tools navigation" role="tablist">
+    <!-- Tool Navigation Tabs (8 Flagship Modules with Crawlable URLs) -->
+    <nav id="tools-nav" class="no-print grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 mb-8" aria-label="Funny tools navigation" role="tablist">
       
       <!-- Tab 1: Translator -->
       <a 
         id="tab-btn-translator"
         href="/translator"
         onclick="handleRouteLink(event, '/translator')"
-        class="tab-btn text-left p-5 rounded-2xl border transition-all duration-200 bg-white border-[#E5E7EB] hover:border-purple-300 hover:shadow-sm hover:-translate-y-0.5 relative group cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-400 flex flex-col justify-between"
+        class="tab-btn text-left p-4 sm:p-5 rounded-2xl border transition-all duration-200 bg-white border-[#E5E7EB] hover:border-purple-300 hover:shadow-sm hover:-translate-y-0.5 relative group cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-400 flex flex-col justify-between"
         aria-selected="false"
         role="tab"
         aria-controls="panel-translator"
@@ -227,10 +227,10 @@
               Active ●
             </span>
           </div>
-          <h3 class="font-bold text-base text-[#111827] group-hover:text-purple-700 transition-colors">Over-Acting Translator</h3>
-          <p class="text-xs text-[#6B7280] mt-1 leading-relaxed">Turn normal sentences into full-blown drama across 10 cinematic styles.</p>
+          <h3 class="font-bold text-sm sm:text-base text-[#111827] group-hover:text-purple-700 transition-colors">Over-Acting Translator</h3>
+          <p class="text-xs text-[#6B7280] mt-1 leading-relaxed">Turn normal sentences into full-blown drama across 10 styles.</p>
         </div>
-        <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between">
+        <div class="mt-3.5 pt-2.5 border-t border-gray-100 flex items-center justify-between">
           <span class="text-xs font-semibold text-purple-700 group-hover:underline flex items-center gap-1">
             <span>Open Translator</span>
             <span aria-hidden="true">→</span>
@@ -244,7 +244,7 @@
         id="tab-btn-blame"
         href="/blame-generator"
         onclick="handleRouteLink(event, '/blame-generator')"
-        class="tab-btn text-left p-5 rounded-2xl border transition-all duration-200 bg-white border-[#E5E7EB] hover:border-amber-300 hover:shadow-sm hover:-translate-y-0.5 relative group cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-400 flex flex-col justify-between"
+        class="tab-btn text-left p-4 sm:p-5 rounded-2xl border transition-all duration-200 bg-white border-[#E5E7EB] hover:border-amber-300 hover:shadow-sm hover:-translate-y-0.5 relative group cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-400 flex flex-col justify-between"
         aria-selected="false"
         role="tab"
         aria-controls="panel-blame"
@@ -258,15 +258,15 @@
               Active ●
             </span>
           </div>
-          <h3 class="font-bold text-base text-[#111827] group-hover:text-amber-700 transition-colors">The Blame Generator</h3>
-          <p class="text-xs text-[#6B7280] mt-1 leading-relaxed">Deflect responsibility using peer-unreviewed quantum science and astrology.</p>
+          <h3 class="font-bold text-sm sm:text-base text-[#111827] group-hover:text-amber-700 transition-colors">The Blame Generator</h3>
+          <p class="text-xs text-[#6B7280] mt-1 leading-relaxed">Deflect responsibility using peer-unreviewed science &amp; stars.</p>
         </div>
-        <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between">
+        <div class="mt-3.5 pt-2.5 border-t border-gray-100 flex items-center justify-between">
           <span class="text-xs font-semibold text-amber-800 group-hover:underline flex items-center gap-1">
-            <span>Shift the Blame</span>
+            <span>Shift Blame</span>
             <span aria-hidden="true">→</span>
           </span>
-          <span class="text-[10px] text-gray-400 font-medium">3 Flavors</span>
+          <span class="text-[10px] text-gray-400 font-medium">3 Modes</span>
         </div>
       </a>
 
@@ -275,7 +275,7 @@
         id="tab-btn-degree"
         href="/useless-degree"
         onclick="handleRouteLink(event, '/useless-degree')"
-        class="tab-btn text-left p-5 rounded-2xl border transition-all duration-200 bg-white border-[#E5E7EB] hover:border-emerald-300 hover:shadow-sm hover:-translate-y-0.5 relative group cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-400 flex flex-col justify-between"
+        class="tab-btn text-left p-4 sm:p-5 rounded-2xl border transition-all duration-200 bg-white border-[#E5E7EB] hover:border-emerald-300 hover:shadow-sm hover:-translate-y-0.5 relative group cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-400 flex flex-col justify-between"
         aria-selected="false"
         role="tab"
         aria-controls="panel-degree"
@@ -289,15 +289,170 @@
               Active ●
             </span>
           </div>
-          <h3 class="font-bold text-base text-[#111827] group-hover:text-emerald-700 transition-colors">Useless Degree</h3>
-          <p class="text-xs text-[#6B7280] mt-1 leading-relaxed">Confer 10 bespoke diploma certificates with live custom authority signatures.</p>
+          <h3 class="font-bold text-sm sm:text-base text-[#111827] group-hover:text-emerald-700 transition-colors">Useless Degree</h3>
+          <p class="text-xs text-[#6B7280] mt-1 leading-relaxed">Confer 10 bespoke diplomas with custom authority signatures.</p>
         </div>
-        <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between">
+        <div class="mt-3.5 pt-2.5 border-t border-gray-100 flex items-center justify-between">
           <span class="text-xs font-semibold text-emerald-800 group-hover:underline flex items-center gap-1">
             <span>Graduate Now</span>
             <span aria-hidden="true">→</span>
           </span>
           <span class="text-[10px] text-gray-400 font-medium">10 Diplomas</span>
+        </div>
+      </a>
+
+      <!-- Tab 4: Excuse Generator -->
+      <a 
+        id="tab-btn-excuse"
+        href="/excuse-generator"
+        onclick="handleRouteLink(event, '/excuse-generator')"
+        class="tab-btn text-left p-4 sm:p-5 rounded-2xl border transition-all duration-200 bg-white border-[#E5E7EB] hover:border-blue-300 hover:shadow-sm hover:-translate-y-0.5 relative group cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400 flex flex-col justify-between"
+        aria-selected="false"
+        role="tab"
+        aria-controls="panel-excuse"
+        aria-label="Excuse Generator: Generate funny excuses for work, school, and being late">
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <div class="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center text-xl text-blue-700" aria-hidden="true">
+              🛡️
+            </div>
+            <span class="active-indicator hidden text-[11px] font-bold text-blue-800 bg-blue-100 px-2 py-0.5 rounded-full">
+              Active ●
+            </span>
+          </div>
+          <h3 class="font-bold text-sm sm:text-base text-[#111827] group-hover:text-blue-700 transition-colors">Excuse Generator</h3>
+          <p class="text-xs text-[#6B7280] mt-1 leading-relaxed">Bulletproof alibis for late arrivals, homework, and work deadlines.</p>
+        </div>
+        <div class="mt-3.5 pt-2.5 border-t border-gray-100 flex items-center justify-between">
+          <span class="text-xs font-semibold text-blue-700 group-hover:underline flex items-center gap-1">
+            <span>Make Excuse</span>
+            <span aria-hidden="true">→</span>
+          </span>
+          <span class="text-[10px] text-gray-400 font-medium">5 Categories</span>
+        </div>
+      </a>
+
+      <!-- Tab 5: Roast Generator -->
+      <a 
+        id="tab-btn-roast"
+        href="/roast-generator"
+        onclick="handleRouteLink(event, '/roast-generator')"
+        class="tab-btn text-left p-4 sm:p-5 rounded-2xl border transition-all duration-200 bg-white border-[#E5E7EB] hover:border-rose-300 hover:shadow-sm hover:-translate-y-0.5 relative group cursor-pointer focus:outline-none focus:ring-2 focus:ring-rose-400 flex flex-col justify-between"
+        aria-selected="false"
+        role="tab"
+        aria-controls="panel-roast"
+        aria-label="Roast Generator: Playful comedy burns with Mild, Savage, and Absurd modes">
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <div class="w-10 h-10 rounded-xl bg-rose-50 border border-rose-200 flex items-center justify-center text-xl text-rose-700" aria-hidden="true">
+              🔥
+            </div>
+            <span class="active-indicator hidden text-[11px] font-bold text-rose-800 bg-rose-100 px-2 py-0.5 rounded-full">
+              Active ●
+            </span>
+          </div>
+          <h3 class="font-bold text-sm sm:text-base text-[#111827] group-hover:text-rose-700 transition-colors">Roast Generator</h3>
+          <p class="text-xs text-[#6B7280] mt-1 leading-relaxed">Harmless comedic burns across Mild, Savage, and Absurd tiers.</p>
+        </div>
+        <div class="mt-3.5 pt-2.5 border-t border-gray-100 flex items-center justify-between">
+          <span class="text-xs font-semibold text-rose-700 group-hover:underline flex items-center gap-1">
+            <span>Roast Me</span>
+            <span aria-hidden="true">→</span>
+          </span>
+          <span class="text-[10px] text-gray-400 font-medium">3 Intensities</span>
+        </div>
+      </a>
+
+      <!-- Tab 6: Random Life Advice -->
+      <a 
+        id="tab-btn-advice"
+        href="/random-life-advice"
+        onclick="handleRouteLink(event, '/random-life-advice')"
+        class="tab-btn text-left p-4 sm:p-5 rounded-2xl border transition-all duration-200 bg-white border-[#E5E7EB] hover:border-yellow-300 hover:shadow-sm hover:-translate-y-0.5 relative group cursor-pointer focus:outline-none focus:ring-2 focus:ring-yellow-400 flex flex-col justify-between"
+        aria-selected="false"
+        role="tab"
+        aria-controls="panel-advice"
+        aria-label="Random Life Advice: Questionable wisdom and funny proverbs">
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <div class="w-10 h-10 rounded-xl bg-yellow-50 border border-yellow-200 flex items-center justify-center text-xl text-yellow-700" aria-hidden="true">
+              💡
+            </div>
+            <span class="active-indicator hidden text-[11px] font-bold text-yellow-800 bg-yellow-100 px-2 py-0.5 rounded-full">
+              Active ●
+            </span>
+          </div>
+          <h3 class="font-bold text-sm sm:text-base text-[#111827] group-hover:text-yellow-700 transition-colors">Random Life Advice</h3>
+          <p class="text-xs text-[#6B7280] mt-1 leading-relaxed">Unsolicited, questionably useful proverbs for daily confusion.</p>
+        </div>
+        <div class="mt-3.5 pt-2.5 border-t border-gray-100 flex items-center justify-between">
+          <span class="text-xs font-semibold text-yellow-700 group-hover:underline flex items-center gap-1">
+            <span>Get Advice</span>
+            <span aria-hidden="true">→</span>
+          </span>
+          <span class="text-[10px] text-gray-400 font-medium">6 Topics</span>
+        </div>
+      </a>
+
+      <!-- Tab 7: Overthinking Generator -->
+      <a 
+        id="tab-btn-overthinking"
+        href="/overthinking-generator"
+        onclick="handleRouteLink(event, '/overthinking-generator')"
+        class="tab-btn text-left p-4 sm:p-5 rounded-2xl border transition-all duration-200 bg-white border-[#E5E7EB] hover:border-indigo-300 hover:shadow-sm hover:-translate-y-0.5 relative group cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-400 flex flex-col justify-between"
+        aria-selected="false"
+        role="tab"
+        aria-controls="panel-overthinking"
+        aria-label="Overthinking Generator: Turn simple situations into paranoia spirals">
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <div class="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-xl text-indigo-700" aria-hidden="true">
+              🌀
+            </div>
+            <span class="active-indicator hidden text-[11px] font-bold text-indigo-800 bg-indigo-100 px-2 py-0.5 rounded-full">
+              Active ●
+            </span>
+          </div>
+          <h3 class="font-bold text-sm sm:text-base text-[#111827] group-hover:text-indigo-700 transition-colors">Overthinking Spiral</h3>
+          <p class="text-xs text-[#6B7280] mt-1 leading-relaxed">Watch a simple text message escalate into cosmic catastrophe.</p>
+        </div>
+        <div class="mt-3.5 pt-2.5 border-t border-gray-100 flex items-center justify-between">
+          <span class="text-xs font-semibold text-indigo-700 group-hover:underline flex items-center gap-1">
+            <span>Spiral Out</span>
+            <span aria-hidden="true">→</span>
+          </span>
+          <span class="text-[10px] text-gray-400 font-medium">5 Escalations</span>
+        </div>
+      </a>
+
+      <!-- Tab 8: Fake Job Title Generator -->
+      <a 
+        id="tab-btn-job"
+        href="/fake-job-title"
+        onclick="handleRouteLink(event, '/fake-job-title')"
+        class="tab-btn text-left p-4 sm:p-5 rounded-2xl border transition-all duration-200 bg-white border-[#E5E7EB] hover:border-teal-300 hover:shadow-sm hover:-translate-y-0.5 relative group cursor-pointer focus:outline-none focus:ring-2 focus:ring-teal-400 flex flex-col justify-between"
+        aria-selected="false"
+        role="tab"
+        aria-controls="panel-job"
+        aria-label="Fake Job Title Generator: Absurd parody careers and job descriptions">
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <div class="w-10 h-10 rounded-xl bg-teal-50 border border-teal-200 flex items-center justify-center text-xl text-teal-700" aria-hidden="true">
+              💼
+            </div>
+            <span class="active-indicator hidden text-[11px] font-bold text-teal-800 bg-teal-100 px-2 py-0.5 rounded-full">
+              Active ●
+            </span>
+          </div>
+          <h3 class="font-bold text-sm sm:text-base text-[#111827] group-hover:text-teal-700 transition-colors">Fake Job Titles</h3>
+          <p class="text-xs text-[#6B7280] mt-1 leading-relaxed">Invent ridiculous senior titles &amp; full parody job descriptions.</p>
+        </div>
+        <div class="mt-3.5 pt-2.5 border-t border-gray-100 flex items-center justify-between">
+          <span class="text-xs font-semibold text-teal-700 group-hover:underline flex items-center gap-1">
+            <span>Invent Career</span>
+            <span aria-hidden="true">→</span>
+          </span>
+          <span class="text-[10px] text-gray-400 font-medium">5 Sectors</span>
         </div>
       </a>
 
@@ -378,7 +533,7 @@
               <span class="text-xs font-bold uppercase tracking-wider text-indigo-700 block mb-1">
                 Featured Tools &amp; Time Wasters
               </span>
-              <h2 class="text-xl sm:text-2xl font-bold text-[#111827]">Pick Your Favorite Tool Below</h2>
+              <h1 class="text-xl sm:text-2xl font-bold text-[#111827]">Bakwaas Center – Funny Online Tools &amp; Time-Wasting Games</h1>
             </div>
             <button 
               type="button"
@@ -389,65 +544,272 @@
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <!-- Card 1: Translator -->
-          <div class="p-5 rounded-2xl bg-purple-50/50 border border-purple-200/80 flex flex-col justify-between hover:shadow-sm transition">
+          <div class="p-4 sm:p-5 rounded-2xl bg-purple-50/50 border border-purple-200/80 flex flex-col justify-between hover:shadow-sm transition">
             <div>
               <div class="w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center text-xl text-purple-700 mb-3" aria-hidden="true">
                 🎭
               </div>
               <h3 class="font-bold text-base text-[#111827] mb-1.5">Over-Acting Translator</h3>
               <p class="text-xs text-[#4B5563] leading-relaxed mb-4">
-                Turn standard, mundane daily dialogue into 10 dramatic Bollywood punchlines, Indian soap-opera gasps, and Shakespearean monologues.
+                Turn standard mundane dialogue into dramatic Bollywood punchlines, soap-opera gasps, and Shakespearean monologues.
               </p>
             </div>
             <a 
               href="/translator"
               onclick="handleRouteLink(event, '/translator')"
-              class="w-full py-2.5 px-4 rounded-xl bg-purple-700 hover:bg-purple-800 text-white font-bold text-xs sm:text-sm text-center shadow-2xs transition inline-flex items-center justify-center gap-1.5">
+              class="w-full py-2 px-3 rounded-xl bg-purple-700 hover:bg-purple-800 text-white font-bold text-xs text-center shadow-2xs transition inline-flex items-center justify-center gap-1.5">
               <span>Open Translator</span>
               <span aria-hidden="true">→</span>
             </a>
           </div>
 
           <!-- Card 2: Blame Generator -->
-          <div class="p-5 rounded-2xl bg-amber-50/50 border border-amber-200/80 flex flex-col justify-between hover:shadow-sm transition">
+          <div class="p-4 sm:p-5 rounded-2xl bg-amber-50/50 border border-amber-200/80 flex flex-col justify-between hover:shadow-sm transition">
             <div>
               <div class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center text-xl text-amber-800 mb-3" aria-hidden="true">
                 🧠
               </div>
               <h3 class="font-bold text-base text-[#111827] mb-1.5">The Blame Generator</h3>
               <p class="text-xs text-[#4B5563] leading-relaxed mb-4">
-                Running late? Didn't do the chores? Generate unassailable scientific, astrophysical, and astrological excuses to deflect all blame.
+                Running late or skipping chores? Generate unassailable scientific, astrophysical, and astrological excuses.
               </p>
             </div>
             <a 
               href="/blame-generator"
               onclick="handleRouteLink(event, '/blame-generator')"
-              class="w-full py-2.5 px-4 rounded-xl bg-amber-700 hover:bg-amber-800 text-white font-bold text-xs sm:text-sm text-center shadow-2xs transition inline-flex items-center justify-center gap-1.5">
-              <span>Shift the Blame</span>
+              class="w-full py-2 px-3 rounded-xl bg-amber-700 hover:bg-amber-800 text-white font-bold text-xs text-center shadow-2xs transition inline-flex items-center justify-center gap-1.5">
+              <span>Shift Blame</span>
               <span aria-hidden="true">→</span>
             </a>
           </div>
 
           <!-- Card 3: Useless Degree -->
-          <div class="p-5 rounded-2xl bg-emerald-50/50 border border-emerald-200/80 flex flex-col justify-between hover:shadow-sm transition">
+          <div class="p-4 sm:p-5 rounded-2xl bg-emerald-50/50 border border-emerald-200/80 flex flex-col justify-between hover:shadow-sm transition">
             <div>
               <div class="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center text-xl text-emerald-800 mb-3" aria-hidden="true">
                 📜
               </div>
               <h3 class="font-bold text-base text-[#111827] mb-1.5">Useless Degree</h3>
               <p class="text-xs text-[#4B5563] leading-relaxed mb-4">
-                Confer 10 useless university degrees with authentic custom authority signatures, seals, and downloadable high-res certificates.
+                Confer 10 useless university degrees with authentic custom authority signatures, seals, and downloadable certificates.
               </p>
             </div>
             <a 
               href="/useless-degree"
               onclick="handleRouteLink(event, '/useless-degree')"
-              class="w-full py-2.5 px-4 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs sm:text-sm text-center shadow-2xs transition inline-flex items-center justify-center gap-1.5">
+              class="w-full py-2 px-3 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs text-center shadow-2xs transition inline-flex items-center justify-center gap-1.5">
               <span>Graduate Now</span>
               <span aria-hidden="true">→</span>
             </a>
+          </div>
+
+          <!-- Card 4: Excuse Generator -->
+          <div class="p-4 sm:p-5 rounded-2xl bg-blue-50/50 border border-blue-200/80 flex flex-col justify-between hover:shadow-sm transition">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center text-xl text-blue-700 mb-3" aria-hidden="true">
+                🛡️
+              </div>
+              <h3 class="font-bold text-base text-[#111827] mb-1.5">Excuse Generator</h3>
+              <p class="text-xs text-[#4B5563] leading-relaxed mb-4">
+                Need a quick alibi for school, work, or social events? Get certified peer-unreviewed explanations with plausibility ratings.
+              </p>
+            </div>
+            <a 
+              href="/excuse-generator"
+              onclick="handleRouteLink(event, '/excuse-generator')"
+              class="w-full py-2 px-3 rounded-xl bg-blue-700 hover:bg-blue-800 text-white font-bold text-xs text-center shadow-2xs transition inline-flex items-center justify-center gap-1.5">
+              <span>Make Excuse</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <!-- Card 5: Roast Generator -->
+          <div class="p-4 sm:p-5 rounded-2xl bg-rose-50/50 border border-rose-200/80 flex flex-col justify-between hover:shadow-sm transition">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-rose-100 flex items-center justify-center text-xl text-rose-700 mb-3" aria-hidden="true">
+                🔥
+              </div>
+              <h3 class="font-bold text-base text-[#111827] mb-1.5">Roast Generator</h3>
+              <p class="text-xs text-[#4B5563] leading-relaxed mb-4">
+                Generate harmless, razor-sharp comedy burns for yourself or friends across Mild, Savage, and Absurd tiers.
+              </p>
+            </div>
+            <a 
+              href="/roast-generator"
+              onclick="handleRouteLink(event, '/roast-generator')"
+              class="w-full py-2 px-3 rounded-xl bg-rose-700 hover:bg-rose-800 text-white font-bold text-xs text-center shadow-2xs transition inline-flex items-center justify-center gap-1.5">
+              <span>Roast Me</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <!-- Card 6: Random Life Advice -->
+          <div class="p-4 sm:p-5 rounded-2xl bg-yellow-50/50 border border-yellow-200/80 flex flex-col justify-between hover:shadow-sm transition">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-yellow-100 flex items-center justify-center text-xl text-yellow-800 mb-3" aria-hidden="true">
+                💡
+              </div>
+              <h3 class="font-bold text-base text-[#111827] mb-1.5">Random Life Advice</h3>
+              <p class="text-xs text-[#4B5563] leading-relaxed mb-4">
+                Unsolicited, questionably useful rules for school, productivity, shopping, and navigating everyday awkwardness.
+              </p>
+            </div>
+            <a 
+              href="/random-life-advice"
+              onclick="handleRouteLink(event, '/random-life-advice')"
+              class="w-full py-2 px-3 rounded-xl bg-yellow-600 hover:bg-yellow-700 text-white font-bold text-xs text-center shadow-2xs transition inline-flex items-center justify-center gap-1.5">
+              <span>Get Advice</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <!-- Card 7: Overthinking Generator -->
+          <div class="p-4 sm:p-5 rounded-2xl bg-indigo-50/50 border border-indigo-200/80 flex flex-col justify-between hover:shadow-sm transition">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-indigo-100 flex items-center justify-center text-xl text-indigo-700 mb-3" aria-hidden="true">
+                🌀
+              </div>
+              <h3 class="font-bold text-base text-[#111827] mb-1.5">Overthinking Spiral</h3>
+              <p class="text-xs text-[#4B5563] leading-relaxed mb-4">
+                Watch harmless everyday events like someone replying "k." spiral into an apocalyptic 5-step cosmic conspiracy.
+              </p>
+            </div>
+            <a 
+              href="/overthinking-generator"
+              onclick="handleRouteLink(event, '/overthinking-generator')"
+              class="w-full py-2 px-3 rounded-xl bg-indigo-700 hover:bg-indigo-800 text-white font-bold text-xs text-center shadow-2xs transition inline-flex items-center justify-center gap-1.5">
+              <span>Spiral Out</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <!-- Card 8: Fake Job Title Generator -->
+          <div class="p-4 sm:p-5 rounded-2xl bg-teal-50/50 border border-teal-200/80 flex flex-col justify-between hover:shadow-sm transition">
+            <div>
+              <div class="w-10 h-10 rounded-xl bg-teal-100 flex items-center justify-center text-xl text-teal-700 mb-3" aria-hidden="true">
+                💼
+              </div>
+              <h3 class="font-bold text-base text-[#111827] mb-1.5">Fake Job Titles</h3>
+              <p class="text-xs text-[#4B5563] leading-relaxed mb-4">
+                Invent prestigious-sounding, completely ridiculous corporate and tech titles with full parody job descriptions.
+              </p>
+            </div>
+            <a 
+              href="/fake-job-title"
+              onclick="handleRouteLink(event, '/fake-job-title')"
+              class="w-full py-2 px-3 rounded-xl bg-teal-700 hover:bg-teal-800 text-white font-bold text-xs text-center shadow-2xs transition inline-flex items-center justify-center gap-1.5">
+              <span>Invent Career</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- SEO-Friendly Introduction & Directory Section -->
+        <div class="mt-8 pt-8 border-t border-[#E5E7EB] space-y-6">
+          <div>
+            <h2 class="text-xl sm:text-2xl font-bold text-[#111827] mb-2.5">
+              Funny Online Tools for When You're Bored
+            </h2>
+            <p class="text-sm sm:text-base text-[#4B5563] leading-relaxed">
+              Welcome to Bakwaas Center, an independent collection of funny online tools and playful time-wasting experiments designed for pure internet entertainment. Whenever procrastination strikes or you need a harmless laugh during a break, our whimsical tools turn everyday mundanity into comedy. From converting dull messages into over-the-top cinematic dialogues to creating absurdly official excuses and useless graduation certificates, everything here is built to make passing the time delightfully silly.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-xl sm:text-2xl font-bold text-[#111827] mb-3">
+              Explore All 8 Funny Tools on Bakwaas Center
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 text-left">
+              <div class="p-3.5 rounded-2xl bg-gray-50/80 border border-gray-200/80">
+                <h3 class="font-bold text-sm text-[#111827] mb-1">
+                  <a href="/translator" onclick="handleRouteLink(event, '/translator')" class="text-purple-700 hover:underline">
+                    Over-Acting Translator →
+                  </a>
+                </h3>
+                <p class="text-xs text-[#4B5563] leading-relaxed">
+                  Turn normal text into dramatic text with 10 acting styles, including Bollywood melodrama, Gen-Z chaos, and news yelling.
+                </p>
+              </div>
+
+              <div class="p-3.5 rounded-2xl bg-gray-50/80 border border-gray-200/80">
+                <h3 class="font-bold text-sm text-[#111827] mb-1">
+                  <a href="/blame-generator" onclick="handleRouteLink(event, '/blame-generator')" class="text-amber-700 hover:underline">
+                    Blame Generator →
+                  </a>
+                </h3>
+                <p class="text-xs text-[#4B5563] leading-relaxed">
+                  Generate hilarious, peer-unreviewed scientific and astrological excuses to deflect blame without breaking a sweat.
+                </p>
+              </div>
+
+              <div class="p-3.5 rounded-2xl bg-gray-50/80 border border-gray-200/80">
+                <h3 class="font-bold text-sm text-[#111827] mb-1">
+                  <a href="/useless-degree" onclick="handleRouteLink(event, '/useless-degree')" class="text-emerald-700 hover:underline">
+                    Useless Degree Generator →
+                  </a>
+                </h3>
+                <p class="text-xs text-[#4B5563] leading-relaxed">
+                  Award certified honors in Overthinking or Meme Analysis, complete with custom signatures, seals, and PDF downloads.
+                </p>
+              </div>
+
+              <div class="p-3.5 rounded-2xl bg-gray-50/80 border border-gray-200/80">
+                <h3 class="font-bold text-sm text-[#111827] mb-1">
+                  <a href="/excuse-generator" onclick="handleRouteLink(event, '/excuse-generator')" class="text-blue-700 hover:underline">
+                    Excuse Generator →
+                  </a>
+                </h3>
+                <p class="text-xs text-[#4B5563] leading-relaxed">
+                  Unassailable alibis across School, Work, Late, Social, and General with realistic-looking plausibility meters.
+                </p>
+              </div>
+
+              <div class="p-3.5 rounded-2xl bg-gray-50/80 border border-gray-200/80">
+                <h3 class="font-bold text-sm text-[#111827] mb-1">
+                  <a href="/roast-generator" onclick="handleRouteLink(event, '/roast-generator')" class="text-rose-700 hover:underline">
+                    Roast Generator →
+                  </a>
+                </h3>
+                <p class="text-xs text-[#4B5563] leading-relaxed">
+                  Generate playful comedy roasts across Mild, Savage, and Absurd tiers for friendly teasing and fun.
+                </p>
+              </div>
+
+              <div class="p-3.5 rounded-2xl bg-gray-50/80 border border-gray-200/80">
+                <h3 class="font-bold text-sm text-[#111827] mb-1">
+                  <a href="/random-life-advice" onclick="handleRouteLink(event, '/random-life-advice')" class="text-yellow-700 hover:underline">
+                    Random Life Advice →
+                  </a>
+                </h3>
+                <p class="text-xs text-[#4B5563] leading-relaxed">
+                  Hilariously questionable wisdom on money, productivity, parties, and everyday survival with voting.
+                </p>
+              </div>
+
+              <div class="p-3.5 rounded-2xl bg-gray-50/80 border border-gray-200/80">
+                <h3 class="font-bold text-sm text-[#111827] mb-1">
+                  <a href="/overthinking-generator" onclick="handleRouteLink(event, '/overthinking-generator')" class="text-indigo-700 hover:underline">
+                    Overthinking Generator →
+                  </a>
+                </h3>
+                <p class="text-xs text-[#4B5563] leading-relaxed">
+                  Turn a simple unanswered text into an escalating 5-step paranoia spiral, plus a "Make It Worse" button!
+                </p>
+              </div>
+
+              <div class="p-3.5 rounded-2xl bg-gray-50/80 border border-gray-200/80">
+                <h3 class="font-bold text-sm text-[#111827] mb-1">
+                  <a href="/fake-job-title" onclick="handleRouteLink(event, '/fake-job-title')" class="text-teal-700 hover:underline">
+                    Fake Job Title Generator →
+                  </a>
+                </h3>
+                <p class="text-xs text-[#4B5563] leading-relaxed">
+                  Absurd corporate, tech, and student job titles with full parody descriptions, key tasks, and perks.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -463,17 +825,29 @@
     <section id="panel-translator" class="tool-panel hidden animate-fade-in" role="tabpanel" aria-labelledby="tab-btn-translator">
       <div class="bg-white rounded-3xl border border-[#E5E7EB] p-6 sm:p-8 shadow-xs">
         
+        <!-- Visible Breadcrumb Navigation -->
+        <nav aria-label="Breadcrumb" class="mb-4 text-xs font-medium text-[#6B7280]">
+          <ol class="flex items-center gap-1.5 list-none p-0 m-0">
+            <li><a href="/" onclick="handleRouteLink(event, '/')" class="hover:text-purple-700 transition">Home</a></li>
+            <li aria-hidden="true" class="text-gray-400">/</li>
+            <li class="text-[#111827] font-semibold" aria-current="page">Over-Acting Translator</li>
+          </ol>
+        </nav>
+
         <!-- Header -->
         <div class="border-b border-[#E5E7EB] pb-5 mb-6">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-purple-50 border border-purple-200 flex items-center justify-center text-xl text-purple-700">
+            <div class="w-10 h-10 rounded-xl bg-purple-50 border border-purple-200 flex items-center justify-center text-xl text-purple-700" aria-hidden="true">
               🎭
             </div>
             <div>
-              <h2 class="text-xl sm:text-2xl font-bold text-[#111827]">Over-Acting Translator</h2>
+              <h1 class="text-xl sm:text-2xl font-bold text-[#111827]">Over-Acting Translator</h1>
               <p class="text-sm text-[#6B7280] mt-0.5">“Because saying ‘I’m hungry’ is simply not dramatic enough.”</p>
             </div>
           </div>
+          <p class="text-xs sm:text-sm text-[#4B5563] mt-3 leading-relaxed">
+            An absurdly dramatic text translator that turns simple, boring sentences into high-stakes theatrical dialogues, Bollywood confrontations, and soap-opera climaxes. Perfect for spicing up boring group chats or laughing with friends.
+          </p>
         </div>
 
         <!-- Language Preference Option -->
@@ -599,6 +973,50 @@
           </div>
         </div>
 
+        <!-- SEO Content & Educational Guide -->
+        <div class="mt-8 pt-8 border-t border-[#E5E7EB] space-y-6">
+          <div>
+            <h2 class="text-lg sm:text-xl font-bold text-[#111827] mb-3">
+              How the Over-Acting Translator Works
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+              <div class="p-4 rounded-xl bg-purple-50/40 border border-purple-100">
+                <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-purple-200 text-purple-900 text-xs font-bold mb-2">1</span>
+                <h3 class="text-sm font-bold text-[#111827] mb-1">Type Normal Text</h3>
+                <p class="text-xs text-[#4B5563] leading-relaxed">
+                  Enter an ordinary human phrase, like "I'm hungry", "I'm running late", or "My phone battery died".
+                </p>
+              </div>
+              <div class="p-4 rounded-xl bg-purple-50/40 border border-purple-100">
+                <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-purple-200 text-purple-900 text-xs font-bold mb-2">2</span>
+                <h3 class="text-sm font-bold text-[#111827] mb-1">Select Acting Style</h3>
+                <p class="text-xs text-[#4B5563] leading-relaxed">
+                  Pick from 10 comedic genres including Bollywood Melodrama, Screaming News Anchor, Sahityik Hindi, and Gen-Z Chaos.
+                </p>
+              </div>
+              <div class="p-4 rounded-xl bg-purple-50/40 border border-purple-100">
+                <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-purple-200 text-purple-900 text-xs font-bold mb-2">3</span>
+                <h3 class="text-sm font-bold text-[#111827] mb-1">Copy &amp; Unleash Drama</h3>
+                <p class="text-xs text-[#4B5563] leading-relaxed">
+                  Click to translate and instantly copy or share the theatrical masterpiece directly to your friends and group chats.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h2 class="text-lg sm:text-xl font-bold text-[#111827] mb-2.5">
+              Why Use a Dramatic Text Translator?
+            </h2>
+            <p class="text-sm text-[#4B5563] leading-relaxed mb-3">
+              Modern digital communication has become remarkably monotone. When a friend texts "where are you?", a plain "stuck in traffic" lacks cinematic flair. The Over-Acting Translator infuses raw Shakespearean torment and Bollywood thunder into the most mundane moments of life. Whether you want to turn normal text into dramatic text, shock your colleagues on Slack, or simply entertain yourself when bored, injecting theatrical melodrama turns daily communication into pure comedy.
+            </p>
+            <p class="text-xs sm:text-sm text-[#6B7280]">
+              Done with drama? Deflect all your real-world delays by using the <a href="/blame-generator" onclick="handleRouteLink(event, '/blame-generator')" class="text-amber-700 font-semibold hover:underline">Blame Generator</a> to generate a random blame, or graduate in certified silliness and <a href="/useless-degree" onclick="handleRouteLink(event, '/useless-degree')" class="text-emerald-700 font-semibold hover:underline">create a useless degree</a>.
+            </p>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -609,17 +1027,29 @@
     <section id="panel-blame" class="tool-panel hidden animate-fade-in" role="tabpanel" aria-labelledby="tab-btn-blame">
       <div class="bg-white rounded-3xl border border-[#E5E7EB] p-6 sm:p-8 shadow-xs">
         
+        <!-- Visible Breadcrumb Navigation -->
+        <nav aria-label="Breadcrumb" class="mb-4 text-xs font-medium text-[#6B7280]">
+          <ol class="flex items-center gap-1.5 list-none p-0 m-0">
+            <li><a href="/" onclick="handleRouteLink(event, '/')" class="hover:text-amber-700 transition">Home</a></li>
+            <li aria-hidden="true" class="text-gray-400">/</li>
+            <li class="text-[#111827] font-semibold" aria-current="page">Blame Generator</li>
+          </ol>
+        </nav>
+
         <!-- Header -->
         <div class="border-b border-[#E5E7EB] pb-5 mb-6">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-xl text-amber-700">
+            <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-xl text-amber-700" aria-hidden="true">
               🧠
             </div>
             <div>
-              <h2 class="text-xl sm:text-2xl font-bold text-[#111827]">The Blame Generator</h2>
+              <h1 class="text-xl sm:text-2xl font-bold text-[#111827]">Blame Generator</h1>
               <p class="text-sm text-[#6B7280] mt-0.5">“Why take responsibility when science & astrology can take it for you?”</p>
             </div>
           </div>
+          <p class="text-xs sm:text-sm text-[#4B5563] mt-3 leading-relaxed">
+            A hilarious random blame generator delivering scientifically questionable and astrologically absurd excuses to deflect responsibility for lateness, unanswered texts, and unfinished chores.
+          </p>
         </div>
 
         <!-- Language Preference Option -->
@@ -732,6 +1162,50 @@
           </div>
         </div>
 
+        <!-- SEO Content & Educational Guide -->
+        <div class="mt-8 pt-8 border-t border-[#E5E7EB] space-y-6">
+          <div>
+            <h2 class="text-lg sm:text-xl font-bold text-[#111827] mb-3">
+              How the Blame Generator Works
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+              <div class="p-4 rounded-xl bg-amber-50/40 border border-amber-100">
+                <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-amber-200 text-amber-950 text-xs font-bold mb-2">1</span>
+                <h3 class="text-sm font-bold text-[#111827] mb-1">Select Your Crisis</h3>
+                <p class="text-xs text-[#4B5563] leading-relaxed">
+                  Choose the situation you want to evade, such as office delays, unread messages, late arrivals, or neglected chores.
+                </p>
+              </div>
+              <div class="p-4 rounded-xl bg-amber-50/40 border border-amber-100">
+                <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-amber-200 text-amber-950 text-xs font-bold mb-2">2</span>
+                <h3 class="text-sm font-bold text-[#111827] mb-1">Pick Excuse Flavor</h3>
+                <p class="text-xs text-[#4B5563] leading-relaxed">
+                  Choose between Pure Desi Hinglish, Quantum &amp; Absurd Science, or Traditional Astrological &amp; Vaastu explanations.
+                </p>
+              </div>
+              <div class="p-4 rounded-xl bg-amber-50/40 border border-amber-100">
+                <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-amber-200 text-amber-950 text-xs font-bold mb-2">3</span>
+                <h3 class="text-sm font-bold text-[#111827] mb-1">Shift the Blame</h3>
+                <p class="text-xs text-[#4B5563] leading-relaxed">
+                  Generate an airtight excuse and copy it directly to your chat to leave friends and bosses completely bewildered.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h2 class="text-lg sm:text-xl font-bold text-[#111827] mb-2.5">
+              Funny Blame Ideas for Any Situation
+            </h2>
+            <p class="text-sm text-[#4B5563] leading-relaxed mb-3">
+              Taking personal responsibility can be deeply exhausting. Why confess that you simply overslept when you could attribute your tardiness to localized tachyon distortions, planetary retrograde interference, or unexpected gravitational anomalies? Whether crafting humorous excuses for missed deadlines, joking around in team standups, or sharing funny blame ideas with friends, our parody blame generator ensures you never run out of hilarious, fictional alibis.
+            </p>
+            <p class="text-xs sm:text-sm text-[#6B7280]">
+              Need to apologize with theatrical passion? <a href="/translator" onclick="handleRouteLink(event, '/translator')" class="text-purple-700 font-semibold hover:underline">Try the Over-Acting Translator</a>, or celebrate your excuse-making skills and <a href="/useless-degree" onclick="handleRouteLink(event, '/useless-degree')" class="text-emerald-700 font-semibold hover:underline">create a useless degree</a> in excuse diplomacy.
+            </p>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -742,17 +1216,29 @@
     <section id="panel-degree" class="tool-panel hidden animate-fade-in" role="tabpanel" aria-labelledby="tab-btn-degree">
       <div class="bg-white rounded-3xl border border-[#E5E7EB] p-6 sm:p-8 shadow-xs">
         
+        <!-- Visible Breadcrumb Navigation (Hidden on Print) -->
+        <nav aria-label="Breadcrumb" class="no-print mb-4 text-xs font-medium text-[#6B7280]">
+          <ol class="flex items-center gap-1.5 list-none p-0 m-0">
+            <li><a href="/" onclick="handleRouteLink(event, '/')" class="hover:text-emerald-700 transition">Home</a></li>
+            <li aria-hidden="true" class="text-gray-400">/</li>
+            <li class="text-[#111827] font-semibold" aria-current="page">Useless Degree Generator</li>
+          </ol>
+        </nav>
+
         <!-- Header -->
         <div class="border-b border-[#E5E7EB] pb-5 mb-6">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-xl text-emerald-700">
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-xl text-emerald-700" aria-hidden="true">
               📜
             </div>
             <div>
-              <h2 class="text-xl sm:text-2xl font-bold text-[#111827]">Useless Degree Convocation</h2>
+              <h1 class="text-xl sm:text-2xl font-bold text-[#111827]">Useless Degree Generator</h1>
               <p class="text-sm text-[#6B7280] mt-0.5">“Classic Convocation — 10 bespoke degree diploma formats with real-time custom authority signatory typing.”</p>
             </div>
           </div>
+          <p class="text-xs sm:text-sm text-[#4B5563] mt-3 leading-relaxed">
+            An online fake certificate generator conferring funny, completely useless university degrees in Overthinking, Meme Analysis, Procrastination, and more, complete with official seals and signatures.
+          </p>
         </div>
 
         <!-- Form Area (Hidden on Print) -->
@@ -901,6 +1387,932 @@
 
         </div>
 
+        <!-- SEO Content & Educational Guide (Hidden on Print) -->
+        <div class="no-print mt-8 pt-8 border-t border-[#E5E7EB] space-y-6">
+          <div>
+            <h2 class="text-lg sm:text-xl font-bold text-[#111827] mb-3">
+              How the Useless Degree Generator Works
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+              <div class="p-4 rounded-xl bg-emerald-50/40 border border-emerald-100">
+                <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-200 text-emerald-950 text-xs font-bold mb-2">1</span>
+                <h3 class="text-sm font-bold text-[#111827] mb-1">Enter Recipient Name</h3>
+                <p class="text-xs text-[#4B5563] leading-relaxed">
+                  Type your name or a friend's name and choose from 10 parody disciplines like Meme Analysis or Professional Sarcasm.
+                </p>
+              </div>
+              <div class="p-4 rounded-xl bg-emerald-50/40 border border-emerald-100">
+                <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-200 text-emerald-950 text-xs font-bold mb-2">2</span>
+                <h3 class="text-sm font-bold text-[#111827] mb-1">Customize Parody Details</h3>
+                <p class="text-xs text-[#4B5563] leading-relaxed">
+                  Choose authentic vintage seals, custom signatory titles, graduation dates, or upload an optional passport photo.
+                </p>
+              </div>
+              <div class="p-4 rounded-xl bg-emerald-50/40 border border-emerald-100">
+                <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-emerald-200 text-emerald-950 text-xs font-bold mb-2">3</span>
+                <h3 class="text-sm font-bold text-[#111827] mb-1">Download &amp; Flaunt</h3>
+                <p class="text-xs text-[#4B5563] leading-relaxed">
+                  Download a high-resolution PNG image, generate a printable PDF certificate, or share your useless honor on social media.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h2 class="text-lg sm:text-xl font-bold text-[#111827] mb-2.5">
+              Create Your Completely Unnecessary Degree
+            </h2>
+            <p class="text-sm text-[#4B5563] leading-relaxed mb-3">
+              Traditional universities award degrees in physics, economics, and literature—but who honors your sleepless nights analyzing internet memes or your Olympic-tier overthinking? Our parody certificate generator lets you create official-looking, beautifully designed graduation diplomas for completely frivolous life accomplishments. Frame it on your desk, gift it to your chronically indecisive best friend, or post it online for comedic glory.
+            </p>
+            <p class="text-xs sm:text-sm text-[#6B7280]">
+              Need to write an overly dramatic valedictorian speech? <a href="/translator" onclick="handleRouteLink(event, '/translator')" class="text-purple-700 font-semibold hover:underline">Try the Over-Acting Translator</a>, or <a href="/blame-generator" onclick="handleRouteLink(event, '/blame-generator')" class="text-amber-700 font-semibold hover:underline">generate a random blame</a> for missing your real-life exams.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- COMPONENT 5: EXCUSE GENERATOR -->
+    <!-- ========================================================================= -->
+    <section id="panel-excuse" class="tool-panel hidden animate-fade-in" role="tabpanel" aria-labelledby="tab-btn-excuse">
+      <div class="bg-white rounded-3xl border border-[#E5E7EB] p-6 sm:p-8 shadow-xs">
+        
+        <!-- Visible Breadcrumb Navigation -->
+        <nav aria-label="Breadcrumb" class="mb-4 text-xs font-medium text-[#6B7280]">
+          <ol class="flex items-center gap-1.5 list-none p-0 m-0">
+            <li><a href="/" onclick="handleRouteLink(event, '/')" class="hover:text-blue-700 transition">Home</a></li>
+            <li aria-hidden="true" class="text-gray-400">/</li>
+            <li class="text-[#111827] font-semibold" aria-current="page">Excuse Generator</li>
+          </ol>
+        </nav>
+
+        <!-- Header -->
+        <div class="border-b border-[#E5E7EB] pb-5 mb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center text-xl text-blue-700" aria-hidden="true">
+              🛡️
+            </div>
+            <div>
+              <h1 class="text-xl sm:text-2xl font-bold text-[#111827]">Excuse Generator</h1>
+              <p class="text-sm text-[#6B7280] mt-0.5">“Bulletproof alibis for late arrivals, homework, and work deadlines.”</p>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-[#4B5563] mt-3 leading-relaxed">
+            Need a peer-unreviewed alibi for skipping class, showing up 45 minutes late, or leaving the team chat on read? Choose a category, optionally enter your situation, and generate an airtight, hilariously absurd excuse.
+          </p>
+        </div>
+
+        <!-- Category Selector -->
+        <div class="mb-6">
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">
+            Select Excuse Category
+          </label>
+          <div class="flex flex-wrap gap-2" role="group" aria-label="Excuse categories">
+            <button 
+              type="button" 
+              data-category="general"
+              class="excuse-cat-btn active px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold border bg-blue-600 text-white border-blue-600 transition cursor-pointer shadow-2xs"
+              aria-pressed="true">
+              ☕ General
+            </button>
+            <button 
+              type="button" 
+              data-category="school"
+              class="excuse-cat-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold border bg-white text-[#4B5563] border-gray-200 hover:border-blue-300 transition cursor-pointer"
+              aria-pressed="false">
+              📚 School &amp; College
+            </button>
+            <button 
+              type="button" 
+              data-category="work"
+              class="excuse-cat-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold border bg-white text-[#4B5563] border-gray-200 hover:border-blue-300 transition cursor-pointer"
+              aria-pressed="false">
+              💼 Work &amp; Office
+            </button>
+            <button 
+              type="button" 
+              data-category="late"
+              class="excuse-cat-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold border bg-white text-[#4B5563] border-gray-200 hover:border-blue-300 transition cursor-pointer"
+              aria-pressed="false">
+              ⏰ Late Arrival
+            </button>
+            <button 
+              type="button" 
+              data-category="social"
+              class="excuse-cat-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold border bg-white text-[#4B5563] border-gray-200 hover:border-blue-300 transition cursor-pointer"
+              aria-pressed="false">
+              🎉 Social &amp; Plans
+            </button>
+          </div>
+        </div>
+
+        <!-- Situation Input (Optional) -->
+        <div class="mb-4">
+          <label for="excuse-situation-input" class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">
+            What is your predicament? <span class="text-gray-400 font-normal lowercase">(Optional — leave blank for auto-pick)</span>
+          </label>
+          <div class="relative">
+            <input 
+              type="text" 
+              id="excuse-situation-input"
+              maxlength="120"
+              placeholder="e.g. I didn't do my homework, I'm 40 minutes late, I skipped the gym..."
+              class="w-full px-4 py-3 rounded-2xl border border-[#D1D5DB] bg-white text-sm text-[#111827] placeholder-gray-400 outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition" />
+          </div>
+        </div>
+
+        <!-- Quick Inspiration Chips -->
+        <div class="mb-6 flex flex-wrap items-center gap-1.5">
+          <span class="text-[11px] font-semibold text-gray-400 mr-1">Quick Scenarios:</span>
+          <button 
+            type="button" 
+            onclick="document.getElementById('excuse-situation-input').value = 'I didn\'t do my homework assignment'; generateExcuse();"
+            class="px-2.5 py-1 rounded-lg bg-gray-100 hover:bg-blue-50 hover:text-blue-700 text-gray-600 text-xs transition cursor-pointer">
+            📝 Homework Missing
+          </button>
+          <button 
+            type="button" 
+            onclick="document.getElementById('excuse-situation-input').value = 'I am 45 minutes late to the morning meeting'; generateExcuse();"
+            class="px-2.5 py-1 rounded-lg bg-gray-100 hover:bg-blue-50 hover:text-blue-700 text-gray-600 text-xs transition cursor-pointer">
+            🚦 Stuck in Traffic
+          </button>
+          <button 
+            type="button" 
+            onclick="document.getElementById('excuse-situation-input').value = 'I bailed on Friday night party plans'; generateExcuse();"
+            class="px-2.5 py-1 rounded-lg bg-gray-100 hover:bg-blue-50 hover:text-blue-700 text-gray-600 text-xs transition cursor-pointer">
+            🛋️ Social Battery 0%
+          </button>
+          <button 
+            type="button" 
+            onclick="document.getElementById('excuse-situation-input').value = 'I postponed the gym for the 14th day'; generateExcuse();"
+            class="px-2.5 py-1 rounded-lg bg-gray-100 hover:bg-blue-50 hover:text-blue-700 text-gray-600 text-xs transition cursor-pointer">
+            🏋️ Skipped Gym
+          </button>
+        </div>
+
+        <!-- Action Controls -->
+        <div class="flex flex-wrap items-center gap-3">
+          <button 
+            type="button"
+            onclick="generateExcuse()"
+            class="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-xs transition flex items-center gap-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-400 active:scale-[0.98]">
+            <span>Generate Excuse</span>
+            <span aria-hidden="true">🛡️</span>
+          </button>
+          <button 
+            type="button"
+            onclick="document.getElementById('excuse-situation-input').value = ''; generateExcuse();"
+            class="px-4 py-3 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-800 font-bold text-sm border border-blue-200 transition flex items-center gap-1.5 cursor-pointer active:scale-[0.98]">
+            <span>🎲 Random Predicament</span>
+          </button>
+          <button 
+            type="button"
+            onclick="resetExcuse()"
+            class="px-4 py-3 rounded-xl bg-white hover:bg-gray-100 text-gray-600 font-semibold text-sm border border-gray-200 transition cursor-pointer">
+            Reset
+          </button>
+        </div>
+
+        <!-- Result Card (Initially hidden) -->
+        <div id="excuse-result-card" class="hidden mt-8 p-6 sm:p-7 rounded-3xl bg-blue-50/50 border border-blue-200/90 shadow-xs select-none">
+          <div class="flex items-center justify-between flex-wrap gap-2 mb-3 pb-3 border-b border-blue-100">
+            <span id="excuse-result-cat" class="text-xs font-bold uppercase tracking-wider text-blue-800 bg-blue-100 px-3 py-1 rounded-full">
+              GENERAL ALIBI
+            </span>
+            <span id="excuse-result-metric" class="text-[11px] font-bold px-2.5 py-0.5 rounded-full border bg-emerald-100 text-emerald-800 border-emerald-200">
+              Purely Theatrical
+            </span>
+          </div>
+          
+          <div class="mb-2">
+            <span class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider block">Predicament:</span>
+            <span id="excuse-result-situation" class="text-sm font-bold text-blue-900"></span>
+          </div>
+
+          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-blue-100 shadow-2xs mt-3">
+            <p id="excuse-result-text" class="text-base sm:text-lg text-[#111827] font-medium leading-relaxed select-text">
+              <!-- Generated excuse text -->
+            </p>
+          </div>
+
+          <div class="mt-4 pt-3 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-2">
+              <button 
+                type="button"
+                onclick="generateExcuse()"
+                class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm shadow-2xs transition flex items-center gap-1.5 cursor-pointer active:scale-[0.98]">
+                <span>🔄 Another Excuse</span>
+              </button>
+              <button 
+                type="button"
+                onclick="copyExcuse()"
+                class="px-4 py-2 rounded-xl bg-white hover:bg-blue-50 text-blue-800 font-bold text-xs sm:text-sm border border-blue-300 shadow-2xs transition flex items-center gap-1.5 cursor-pointer active:scale-[0.98]">
+                <span>📋 Copy Excuse</span>
+              </button>
+            </div>
+            <span class="text-[11px] text-gray-400">Deploy with serious facial expression for best results.</span>
+          </div>
+        </div>
+
+        <!-- Educational & SEO Guide -->
+        <div class="mt-8 pt-8 border-t border-[#E5E7EB] space-y-4">
+          <h2 class="text-lg sm:text-xl font-bold text-[#111827]">
+            How to Use the Excuse Generator
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+            <div class="p-4 rounded-xl bg-blue-50/40 border border-blue-100">
+              <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-200 text-blue-950 text-xs font-bold mb-2">1</span>
+              <h3 class="text-sm font-bold text-[#111827] mb-1">Select Category</h3>
+              <p class="text-xs text-[#4B5563] leading-relaxed">Choose School, Work, Late, Social, or General to calibrate the tone of your defense.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-blue-50/40 border border-blue-100">
+              <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-200 text-blue-950 text-xs font-bold mb-2">2</span>
+              <h3 class="text-sm font-bold text-[#111827] mb-1">Describe Situation</h3>
+              <p class="text-xs text-[#4B5563] leading-relaxed">Enter whatever awkward moment you're trying to escape, or let the tool invent a predicament.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-blue-50/40 border border-blue-100">
+              <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-200 text-blue-950 text-xs font-bold mb-2">3</span>
+              <h3 class="text-sm font-bold text-[#111827] mb-1">Deploy Alibi</h3>
+              <p class="text-xs text-[#4B5563] leading-relaxed">Copy the excuse with a single click and deliver it to your boss, teacher, or friend with absolute confidence.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- COMPONENT 6: ROAST GENERATOR -->
+    <!-- ========================================================================= -->
+    <section id="panel-roast" class="tool-panel hidden animate-fade-in" role="tabpanel" aria-labelledby="tab-btn-roast">
+      <div class="bg-white rounded-3xl border border-[#E5E7EB] p-6 sm:p-8 shadow-xs">
+        
+        <!-- Visible Breadcrumb Navigation -->
+        <nav aria-label="Breadcrumb" class="mb-4 text-xs font-medium text-[#6B7280]">
+          <ol class="flex items-center gap-1.5 list-none p-0 m-0">
+            <li><a href="/" onclick="handleRouteLink(event, '/')" class="hover:text-rose-700 transition">Home</a></li>
+            <li aria-hidden="true" class="text-gray-400">/</li>
+            <li class="text-[#111827] font-semibold" aria-current="page">Roast Generator</li>
+          </ol>
+        </nav>
+
+        <!-- Header -->
+        <div class="border-b border-[#E5E7EB] pb-5 mb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-rose-50 border border-rose-200 flex items-center justify-center text-xl text-rose-700" aria-hidden="true">
+              🔥
+            </div>
+            <div>
+              <h1 class="text-xl sm:text-2xl font-bold text-[#111827]">Roast Generator</h1>
+              <p class="text-sm text-[#6B7280] mt-0.5">“Playful comedy burns to keep your ego suitably calibrated.”</p>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-[#4B5563] mt-3 leading-relaxed">
+            Harmless comedic roasts crafted for lighthearted teasing among friends. Choose your burn temperature from Mild to Savage to Cosmic Absurdity, enter a target name (or roast yourself), and generate instant laughs.
+          </p>
+        </div>
+
+        <!-- Target Input -->
+        <div class="mb-5">
+          <label for="roast-target-input" class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">
+            Who is the target? <span class="text-gray-400 font-normal lowercase">(Leave blank to roast yourself)</span>
+          </label>
+          <input 
+            type="text" 
+            id="roast-target-input"
+            maxlength="50"
+            placeholder="e.g. My roommate, Vikram, The manager, or leave blank for 'You'"
+            class="w-full px-4 py-3 rounded-2xl border border-[#D1D5DB] bg-white text-sm text-[#111827] placeholder-gray-400 outline-none focus:ring-2 focus:ring-rose-400 focus:border-rose-400 transition" />
+        </div>
+
+        <!-- Intensity Selector -->
+        <div class="mb-6">
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">
+            Burn Intensity Tier
+          </label>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" role="group" aria-label="Roast intensity">
+            <button 
+              type="button" 
+              data-intensity="mild"
+              class="roast-intensity-btn p-3 rounded-2xl border text-left bg-white text-[#4B5563] border-gray-200 hover:border-rose-300 transition cursor-pointer"
+              aria-pressed="false">
+              <div class="flex items-center gap-2 mb-1">
+                <span>☕</span>
+                <span class="font-bold text-sm">Mild Sizzle</span>
+              </div>
+              <p class="text-xs text-gray-500">Gentle teasing and wholesome comedic pokes.</p>
+            </button>
+            <button 
+              type="button" 
+              data-intensity="savage"
+              class="roast-intensity-btn active p-3 rounded-2xl border text-left bg-rose-600 text-white border-rose-600 transition cursor-pointer shadow-2xs"
+              aria-pressed="true">
+              <div class="flex items-center gap-2 mb-1">
+                <span>🔥🔥</span>
+                <span class="font-bold text-sm">Savage Reality</span>
+              </div>
+              <p class="text-xs text-rose-100">Sharp comedy burns with zero mercy.</p>
+            </button>
+            <button 
+              type="button" 
+              data-intensity="absurd"
+              class="roast-intensity-btn p-3 rounded-2xl border text-left bg-white text-[#4B5563] border-gray-200 hover:border-rose-300 transition cursor-pointer"
+              aria-pressed="false">
+              <div class="flex items-center gap-2 mb-1">
+                <span>🪐</span>
+                <span class="font-bold text-sm">Cosmic Absurd</span>
+              </div>
+              <p class="text-xs text-gray-500">Surreal, astrophysical brain-melters.</p>
+            </button>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap items-center gap-3">
+          <button 
+            type="button"
+            onclick="generateRoast()"
+            class="px-6 py-3 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-sm shadow-xs transition flex items-center gap-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-rose-400 active:scale-[0.98]">
+            <span>Roast Target</span>
+            <span aria-hidden="true">🔥</span>
+          </button>
+          <button 
+            type="button"
+            onclick="document.getElementById('roast-target-input').value = 'You'; generateRoast();"
+            class="px-4 py-3 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-800 font-bold text-sm border border-rose-200 transition flex items-center gap-1.5 cursor-pointer active:scale-[0.98]">
+            <span>🎲 Roast Me</span>
+          </button>
+          <button 
+            type="button"
+            onclick="resetRoast()"
+            class="px-4 py-3 rounded-xl bg-white hover:bg-gray-100 text-gray-600 font-semibold text-sm border border-gray-200 transition cursor-pointer">
+            Reset
+          </button>
+        </div>
+
+        <!-- Result Card -->
+        <div id="roast-result-card" class="hidden mt-8 p-6 sm:p-7 rounded-3xl bg-rose-50/50 border border-rose-200/90 shadow-xs select-none">
+          <div class="flex items-center justify-between flex-wrap gap-2 mb-3 pb-3 border-b border-rose-100">
+            <span id="roast-target-badge" class="text-xs font-bold uppercase tracking-wider text-rose-800 bg-rose-100 px-3 py-1 rounded-full">
+              🎯 Target: You
+            </span>
+            <span id="roast-degree-badge" class="text-xs font-bold text-rose-900 bg-rose-100 border border-rose-200 px-3 py-1 rounded-full">
+              🔥🔥 2nd Degree Burn
+            </span>
+          </div>
+
+          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-rose-100 shadow-2xs mt-3">
+            <p id="roast-result-text" class="text-base sm:text-lg text-[#111827] font-semibold leading-relaxed select-text">
+              <!-- Roast text -->
+            </p>
+            <p id="roast-result-kicker" class="text-xs sm:text-sm text-rose-600 font-medium italic mt-2.5">
+              <!-- Roast kicker -->
+            </p>
+          </div>
+
+          <div class="mt-4 pt-3 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-2">
+              <button 
+                type="button"
+                onclick="generateRoast()"
+                class="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs sm:text-sm shadow-2xs transition flex items-center gap-1.5 cursor-pointer active:scale-[0.98]">
+                <span>🔄 Another Roast</span>
+              </button>
+              <button 
+                type="button"
+                onclick="copyRoast()"
+                class="px-4 py-2 rounded-xl bg-white hover:bg-rose-50 text-rose-800 font-bold text-xs sm:text-sm border border-rose-300 shadow-2xs transition flex items-center gap-1.5 cursor-pointer active:scale-[0.98]">
+                <span>📋 Copy Roast</span>
+              </button>
+            </div>
+            <span class="text-[11px] text-gray-400">Harmless parody comedy. Keep it friendly!</span>
+          </div>
+        </div>
+
+        <!-- SEO Guide -->
+        <div class="mt-8 pt-8 border-t border-[#E5E7EB] space-y-4">
+          <h2 class="text-lg sm:text-xl font-bold text-[#111827]">
+            Comedy Roasting Etiquette &amp; Guidelines
+          </h2>
+          <p class="text-xs sm:text-sm text-[#4B5563] leading-relaxed">
+            The Bakwaas Roast Generator is built strictly for harmless, good-natured entertainment. Every roast focuses on relatable human habits—like setting seven alarms, hoarding browser tabs, or avoiding phone calls—rather than genuine malice. Share these in friendly group chats, use them as funny icebreakers, or laugh at your own quirks!
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- COMPONENT 7: RANDOM LIFE ADVICE -->
+    <!-- ========================================================================= -->
+    <section id="panel-advice" class="tool-panel hidden animate-fade-in" role="tabpanel" aria-labelledby="tab-btn-advice">
+      <div class="bg-white rounded-3xl border border-[#E5E7EB] p-6 sm:p-8 shadow-xs">
+        
+        <!-- Visible Breadcrumb Navigation -->
+        <nav aria-label="Breadcrumb" class="mb-4 text-xs font-medium text-[#6B7280]">
+          <ol class="flex items-center gap-1.5 list-none p-0 m-0">
+            <li><a href="/" onclick="handleRouteLink(event, '/')" class="hover:text-yellow-700 transition">Home</a></li>
+            <li aria-hidden="true" class="text-gray-400">/</li>
+            <li class="text-[#111827] font-semibold" aria-current="page">Random Life Advice</li>
+          </ol>
+        </nav>
+
+        <!-- Header -->
+        <div class="border-b border-[#E5E7EB] pb-5 mb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-yellow-50 border border-yellow-200 flex items-center justify-center text-xl text-yellow-700" aria-hidden="true">
+              💡
+            </div>
+            <div>
+              <h1 class="text-xl sm:text-2xl font-bold text-[#111827]">Random Life Advice</h1>
+              <p class="text-sm text-[#6B7280] mt-0.5">“Completely unsolicited, wonderfully questionable wisdom for modern survival.”</p>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-[#4B5563] mt-3 leading-relaxed">
+            Need guidance navigating corporate politics, college lectures, awkward party exits, or online shopping carts? Our questionable life advice generator delivers pseudo-philosophical life hacks that sound brilliant until you actually think about them.
+          </p>
+        </div>
+
+        <!-- Topic Categories -->
+        <div class="mb-6">
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">
+            Select Wisdom Category
+          </label>
+          <div class="flex flex-wrap gap-2" role="group" aria-label="Advice topics">
+            <button 
+              type="button" 
+              data-category="random"
+              class="advice-cat-btn active px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold border bg-yellow-500 text-white border-yellow-500 transition cursor-pointer shadow-2xs"
+              aria-pressed="true">
+              🎲 Completely Random
+            </button>
+            <button 
+              type="button" 
+              data-category="productivity"
+              class="advice-cat-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold border bg-white text-[#4B5563] border-gray-200 hover:border-yellow-300 transition cursor-pointer"
+              aria-pressed="false">
+              📋 Productivity &amp; Office
+            </button>
+            <button 
+              type="button" 
+              data-category="money"
+              class="advice-cat-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold border bg-white text-[#4B5563] border-gray-200 hover:border-yellow-300 transition cursor-pointer"
+              aria-pressed="false">
+              💰 Money &amp; Shopping
+            </button>
+            <button 
+              type="button" 
+              data-category="school"
+              class="advice-cat-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold border bg-white text-[#4B5563] border-gray-200 hover:border-yellow-300 transition cursor-pointer"
+              aria-pressed="false">
+              🎓 College &amp; Exams
+            </button>
+            <button 
+              type="button" 
+              data-category="social"
+              class="advice-cat-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold border bg-white text-[#4B5563] border-gray-200 hover:border-yellow-300 transition cursor-pointer"
+              aria-pressed="false">
+              🎉 Social Awkwardness
+            </button>
+            <button 
+              type="button" 
+              data-category="everyday"
+              class="advice-cat-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold border bg-white text-[#4B5563] border-gray-200 hover:border-yellow-300 transition cursor-pointer"
+              aria-pressed="false">
+              🛋️ Everyday Hacks
+            </button>
+          </div>
+        </div>
+
+        <!-- Action Controls -->
+        <div class="flex flex-wrap items-center gap-3">
+          <button 
+            type="button"
+            onclick="generateAdvice()"
+            class="px-6 py-3 rounded-xl bg-yellow-500 hover:bg-yellow-600 text-white font-bold text-sm shadow-xs transition flex items-center gap-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-yellow-400 active:scale-[0.98]">
+            <span>Dispense Wisdom</span>
+            <span aria-hidden="true">💡</span>
+          </button>
+          <button 
+            type="button"
+            onclick="resetAdvice()"
+            class="px-4 py-3 rounded-xl bg-white hover:bg-gray-100 text-gray-600 font-semibold text-sm border border-gray-200 transition cursor-pointer">
+            Reset
+          </button>
+        </div>
+
+        <!-- Result Card -->
+        <div id="advice-result-card" class="hidden mt-8 p-6 sm:p-7 rounded-3xl bg-yellow-50/60 border border-yellow-200/90 shadow-xs select-none">
+          <div class="flex items-center justify-between flex-wrap gap-2 mb-3 pb-3 border-b border-yellow-200">
+            <span id="advice-cat-badge" class="text-xs font-bold uppercase tracking-wider text-yellow-900 bg-yellow-100 px-3 py-1 rounded-full">
+              EVERYDAY WISDOM
+            </span>
+            <span class="text-[11px] text-yellow-800 font-medium">100% Free Unsolicited Truth</span>
+          </div>
+
+          <h3 id="advice-result-rule" class="text-sm sm:text-base font-bold text-[#111827]"></h3>
+
+          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-yellow-100 shadow-2xs mt-3">
+            <p id="advice-result-text" class="text-base sm:text-xl text-yellow-950 font-bold leading-relaxed select-text">
+              <!-- Advice proverb -->
+            </p>
+            <div class="mt-4 pt-3 border-t border-gray-100">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-gray-400 block mb-1">Theoretical Rationale:</span>
+              <p id="advice-result-rationale" class="text-xs sm:text-sm text-[#4B5563] leading-relaxed"></p>
+            </div>
+            <div class="mt-3 p-3 bg-yellow-50 rounded-xl text-xs sm:text-sm text-yellow-900 font-medium">
+              <span id="advice-result-protip"></span>
+            </div>
+          </div>
+
+          <!-- Interactive Voting Section -->
+          <div class="mt-5 p-4 rounded-2xl bg-white/80 border border-yellow-200/80">
+            <span class="text-xs font-bold text-[#111827] block mb-2">How useful is this advice?</span>
+            <div class="flex flex-wrap items-center gap-2">
+              <button 
+                type="button"
+                onclick="rateAdvice('useful')"
+                class="px-3 py-1.5 rounded-xl bg-white hover:bg-emerald-50 text-emerald-800 font-bold text-xs border border-emerald-200 transition flex items-center gap-1 cursor-pointer">
+                <span>🏆 Surprisingly Useful</span>
+                <span id="vote-count-useful" class="bg-emerald-100 px-1.5 py-0.2 rounded-md">42</span>
+              </button>
+              <button 
+                type="button"
+                onclick="rateAdvice('questionable')"
+                class="px-3 py-1.5 rounded-xl bg-white hover:bg-amber-50 text-amber-800 font-bold text-xs border border-amber-200 transition flex items-center gap-1 cursor-pointer">
+                <span>🤨 Questionable</span>
+                <span id="vote-count-questionable" class="bg-amber-100 px-1.5 py-0.2 rounded-md">89</span>
+              </button>
+              <button 
+                type="button"
+                onclick="rateAdvice('useless')"
+                class="px-3 py-1.5 rounded-xl bg-white hover:bg-rose-50 text-rose-800 font-bold text-xs border border-rose-200 transition flex items-center gap-1 cursor-pointer">
+                <span>🗑️ Absolutely Useless</span>
+                <span id="vote-count-useless" class="bg-rose-100 px-1.5 py-0.2 rounded-md">137</span>
+              </button>
+            </div>
+            <p id="advice-feedback-msg" class="text-xs font-bold text-yellow-800 mt-2.5 hidden"></p>
+          </div>
+
+          <div class="mt-4 pt-3 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-2">
+              <button 
+                type="button"
+                onclick="generateAdvice()"
+                class="px-4 py-2 rounded-xl bg-yellow-500 hover:bg-yellow-600 text-white font-bold text-xs sm:text-sm shadow-2xs transition flex items-center gap-1.5 cursor-pointer active:scale-[0.98]">
+                <span>🔄 Another Advice</span>
+              </button>
+              <button 
+                type="button"
+                onclick="copyAdvice()"
+                class="px-4 py-2 rounded-xl bg-white hover:bg-yellow-50 text-yellow-900 font-bold text-xs sm:text-sm border border-yellow-300 shadow-2xs transition flex items-center gap-1.5 cursor-pointer active:scale-[0.98]">
+                <span>📋 Copy Advice</span>
+              </button>
+            </div>
+            <span class="text-[11px] text-gray-400">Disclaimer: Not legal, medical, or financial advice.</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- COMPONENT 8: OVERTHINKING GENERATOR -->
+    <!-- ========================================================================= -->
+    <section id="panel-overthinking" class="tool-panel hidden animate-fade-in" role="tabpanel" aria-labelledby="tab-btn-overthinking">
+      <div class="bg-white rounded-3xl border border-[#E5E7EB] p-6 sm:p-8 shadow-xs">
+        
+        <!-- Visible Breadcrumb Navigation -->
+        <nav aria-label="Breadcrumb" class="mb-4 text-xs font-medium text-[#6B7280]">
+          <ol class="flex items-center gap-1.5 list-none p-0 m-0">
+            <li><a href="/" onclick="handleRouteLink(event, '/')" class="hover:text-indigo-700 transition">Home</a></li>
+            <li aria-hidden="true" class="text-gray-400">/</li>
+            <li class="text-[#111827] font-semibold" aria-current="page">Overthinking Generator</li>
+          </ol>
+        </nav>
+
+        <!-- Header -->
+        <div class="border-b border-[#E5E7EB] pb-5 mb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-xl text-indigo-700" aria-hidden="true">
+              🌀
+            </div>
+            <div>
+              <h1 class="text-xl sm:text-2xl font-bold text-[#111827]">Overthinking Generator</h1>
+              <p class="text-sm text-[#6B7280] mt-0.5">“Turn a tiny innocent moment into an all-consuming 5-alarm existential crisis.”</p>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-[#4B5563] mt-3 leading-relaxed">
+            Did someone send a text message with just "k." and a period? Did your boss schedule a sudden meeting titled "Quick chat"? Enter any harmless everyday situation and watch our algorithm escalate it through 5 stages of acute digital paranoia—with an optional "Make It Worse" button for maximum meltdown!
+          </p>
+        </div>
+
+        <!-- Situation Input -->
+        <div class="mb-4">
+          <label for="overthinking-input" class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">
+            What innocent situation triggered your panic? <span class="text-gray-400 font-normal lowercase">(Optional)</span>
+          </label>
+          <input 
+            type="text" 
+            id="overthinking-input"
+            maxlength="120"
+            placeholder="e.g. They replied with 'k.', My boss said 'Quick question...', Someone chuckled as I walked past..."
+            class="w-full px-4 py-3 rounded-2xl border border-[#D1D5DB] bg-white text-sm text-[#111827] placeholder-gray-400 outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition" />
+        </div>
+
+        <!-- Quick Inspiration Chips -->
+        <div class="mb-6 flex flex-wrap items-center gap-1.5">
+          <span class="text-[11px] font-semibold text-gray-400 mr-1">Sample Triggers:</span>
+          <button 
+            type="button" 
+            onclick="document.getElementById('overthinking-input').value = 'They replied with just \'k.\' with a period'; generateOverthinking();"
+            class="px-2.5 py-1 rounded-lg bg-gray-100 hover:bg-indigo-50 hover:text-indigo-700 text-gray-600 text-xs transition cursor-pointer">
+            💬 Texted "k."
+          </button>
+          <button 
+            type="button" 
+            onclick="document.getElementById('overthinking-input').value = 'My boss scheduled a 4:30 PM Friday sync'; generateOverthinking();"
+            class="px-2.5 py-1 rounded-lg bg-gray-100 hover:bg-indigo-50 hover:text-indigo-700 text-gray-600 text-xs transition cursor-pointer">
+            📅 Friday 4:30 PM Sync
+          </button>
+          <button 
+            type="button" 
+            onclick="document.getElementById('overthinking-input').value = 'Left on Delivered for 47 minutes'; generateOverthinking();"
+            class="px-2.5 py-1 rounded-lg bg-gray-100 hover:bg-indigo-50 hover:text-indigo-700 text-gray-600 text-xs transition cursor-pointer">
+            ⏳ Left on Read
+          </button>
+          <button 
+            type="button" 
+            onclick="document.getElementById('overthinking-input').value = 'The waiter said enjoy your meal and I said you too'; generateOverthinking();"
+            class="px-2.5 py-1 rounded-lg bg-gray-100 hover:bg-indigo-50 hover:text-indigo-700 text-gray-600 text-xs transition cursor-pointer">
+            🍜 "You too!" to Waiter
+          </button>
+        </div>
+
+        <!-- Action Controls -->
+        <div class="flex flex-wrap items-center gap-3">
+          <button 
+            type="button"
+            onclick="generateOverthinking()"
+            class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow-xs transition flex items-center gap-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-400 active:scale-[0.98]">
+            <span>Start Overthinking Spiral</span>
+            <span aria-hidden="true">🌀</span>
+          </button>
+          <button 
+            type="button"
+            onclick="makeItWorse()"
+            class="px-5 py-3 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-sm shadow-xs transition flex items-center gap-1.5 cursor-pointer active:scale-[0.98]">
+            <span>🚨 Make It Worse!</span>
+          </button>
+          <button 
+            type="button"
+            onclick="resetOverthinking()"
+            class="px-4 py-3 rounded-xl bg-white hover:bg-gray-100 text-gray-600 font-semibold text-sm border border-gray-200 transition cursor-pointer">
+            Reset
+          </button>
+        </div>
+
+        <!-- Result Card -->
+        <div id="overthinking-result-card" class="hidden mt-8 p-6 sm:p-7 rounded-3xl bg-indigo-50/50 border border-indigo-200/90 shadow-xs select-none">
+          <div class="flex items-center justify-between flex-wrap gap-2 mb-4 pb-3 border-b border-indigo-100">
+            <span class="text-xs font-bold uppercase tracking-wider text-indigo-800 bg-indigo-100 px-3 py-1 rounded-full">
+              PARANOIA SPIRAL TIMELINE
+            </span>
+            <span class="text-[11px] text-indigo-600 font-semibold">5 Escalating Levels of Doom</span>
+          </div>
+
+          <div id="overthinking-trigger-text" class="text-sm sm:text-base font-bold text-indigo-950 mb-4 bg-indigo-100/50 p-3 rounded-xl">
+            <!-- Scenario trigger -->
+          </div>
+
+          <!-- Spiral Timeline Container -->
+          <div id="overthinking-timeline" class="space-y-3">
+            <!-- Steps injected via JS -->
+          </div>
+
+          <div class="mt-5 pt-3 flex flex-wrap items-center justify-between gap-3 border-t border-indigo-100">
+            <div class="flex flex-wrap items-center gap-2">
+              <button 
+                type="button"
+                onclick="makeItWorse()"
+                class="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs sm:text-sm shadow-2xs transition flex items-center gap-1.5 cursor-pointer active:scale-[0.98]">
+                <span>🚨 Make It Worse</span>
+              </button>
+              <button 
+                type="button"
+                onclick="generateOverthinking()"
+                class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs sm:text-sm shadow-2xs transition flex items-center gap-1.5 cursor-pointer active:scale-[0.98]">
+                <span>🔄 Another Spiral</span>
+              </button>
+              <button 
+                type="button"
+                onclick="copyOverthinking()"
+                class="px-4 py-2 rounded-xl bg-white hover:bg-indigo-50 text-indigo-800 font-bold text-xs sm:text-sm border border-indigo-300 shadow-2xs transition flex items-center gap-1.5 cursor-pointer active:scale-[0.98]">
+                <span>📋 Copy Spiral</span>
+              </button>
+            </div>
+            <span class="text-[11px] text-gray-400">Remember: They probably just had bad cell service.</span>
+          </div>
+        </div>
+
+        <!-- SEO Guide -->
+        <div class="mt-8 pt-8 border-t border-[#E5E7EB] space-y-4">
+          <h2 class="text-lg sm:text-xl font-bold text-[#111827]">
+            The Anatomy of an Overthinking Spiral
+          </h2>
+          <p class="text-xs sm:text-sm text-[#4B5563] leading-relaxed">
+            Psychologists call it catastrophizing; we call it Tuesday afternoon. When our brains encounter an ambiguous event—like someone taking 47 minutes to respond to a meme—we naturally fill in the blanks with intergalactic conspiracies. This parody tool mirrors the exact irrational logic of the human overthinker to help you laugh at life's little awkward moments.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- COMPONENT 9: FAKE JOB TITLE GENERATOR -->
+    <!-- ========================================================================= -->
+    <section id="panel-job" class="tool-panel hidden animate-fade-in" role="tabpanel" aria-labelledby="tab-btn-job">
+      <div class="bg-white rounded-3xl border border-[#E5E7EB] p-6 sm:p-8 shadow-xs">
+        
+        <!-- Visible Breadcrumb Navigation -->
+        <nav aria-label="Breadcrumb" class="mb-4 text-xs font-medium text-[#6B7280]">
+          <ol class="flex items-center gap-1.5 list-none p-0 m-0">
+            <li><a href="/" onclick="handleRouteLink(event, '/')" class="hover:text-teal-700 transition">Home</a></li>
+            <li aria-hidden="true" class="text-gray-400">/</li>
+            <li class="text-[#111827] font-semibold" aria-current="page">Fake Job Title Generator</li>
+          </ol>
+        </nav>
+
+        <!-- Header -->
+        <div class="border-b border-[#E5E7EB] pb-5 mb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-teal-50 border border-teal-200 flex items-center justify-center text-xl text-teal-700" aria-hidden="true">
+              💼
+            </div>
+            <div>
+              <h1 class="text-xl sm:text-2xl font-bold text-[#111827]">Fake Job Title Generator</h1>
+              <p class="text-sm text-[#6B7280] mt-0.5">“Generate absurdly prestigious parody careers for your bio.”</p>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-[#4B5563] mt-3 leading-relaxed">
+            Need an impressive new title for your social media bio, resume, or office cubicle door? Generate high-flying, completely meaningless titles across Corporate, Silicon Valley Tech, Academia, and Pure Internet Slacking—complete with role summaries, hilarious key responsibilities, and imaginary compensation packages!
+          </p>
+        </div>
+
+        <!-- Candidate Name Input -->
+        <div class="mb-5">
+          <label for="job-name-input" class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5">
+            Candidate Name <span class="text-gray-400 font-normal lowercase">(Optional — for personal honors)</span>
+          </label>
+          <input 
+            type="text" 
+            id="job-name-input"
+            maxlength="50"
+            placeholder="e.g. Vikram Sharma, The Intern, Senior Chair Sitter..."
+            class="w-full px-4 py-3 rounded-2xl border border-[#D1D5DB] bg-white text-sm text-[#111827] placeholder-gray-400 outline-none focus:ring-2 focus:ring-teal-400 focus:border-teal-400 transition" />
+        </div>
+
+        <!-- Sector Selector -->
+        <div class="mb-6">
+          <label class="block text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">
+            Select Career Sector
+          </label>
+          <div class="flex flex-wrap gap-2" role="group" aria-label="Career sectors">
+            <button 
+              type="button" 
+              data-category="corporate"
+              class="job-cat-btn active px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold border bg-teal-600 text-white border-teal-600 transition cursor-pointer shadow-2xs"
+              aria-pressed="true">
+              🏢 Corporate Synergy
+            </button>
+            <button 
+              type="button" 
+              data-category="tech"
+              class="job-cat-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold border bg-white text-[#4B5563] border-gray-200 hover:border-teal-300 transition cursor-pointer"
+              aria-pressed="false">
+              💻 Silicon Valley Tech
+            </button>
+            <button 
+              type="button" 
+              data-category="student"
+              class="job-cat-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold border bg-white text-[#4B5563] border-gray-200 hover:border-teal-300 transition cursor-pointer"
+              aria-pressed="false">
+              🎓 Academic Survival
+            </button>
+            <button 
+              type="button" 
+              data-category="internet"
+              class="job-cat-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold border bg-white text-[#4B5563] border-gray-200 hover:border-teal-300 transition cursor-pointer"
+              aria-pressed="false">
+              📱 Internet Culture
+            </button>
+            <button 
+              type="button" 
+              data-category="useless"
+              class="job-cat-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold border bg-white text-[#4B5563] border-gray-200 hover:border-teal-300 transition cursor-pointer"
+              aria-pressed="false">
+              🏖️ Completely Useless
+            </button>
+          </div>
+        </div>
+
+        <!-- Action Controls -->
+        <div class="flex flex-wrap items-center gap-3">
+          <button 
+            type="button"
+            onclick="generateJob()"
+            class="px-6 py-3 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm shadow-xs transition flex items-center gap-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-teal-400 active:scale-[0.98]">
+            <span>Generate Fake Job</span>
+            <span aria-hidden="true">💼</span>
+          </button>
+          <button 
+            type="button"
+            onclick="resetJob()"
+            class="px-4 py-3 rounded-xl bg-white hover:bg-gray-100 text-gray-600 font-semibold text-sm border border-gray-200 transition cursor-pointer">
+            Reset
+          </button>
+        </div>
+
+        <!-- Result Card -->
+        <div id="job-result-card" class="hidden mt-8 p-6 sm:p-7 rounded-3xl bg-teal-50/50 border border-teal-200/90 shadow-xs select-none">
+          <div class="flex items-center justify-between flex-wrap gap-2 mb-3 pb-3 border-b border-teal-100">
+            <span id="job-result-cat" class="text-xs font-bold uppercase tracking-wider text-teal-800 bg-teal-100 px-3 py-1 rounded-full">
+              CORPORATE SECTOR
+            </span>
+            <span id="job-result-candidate" class="text-xs font-bold text-teal-900 bg-teal-200/70 px-3 py-1 rounded-full hidden">
+              Honoring: Vikram
+            </span>
+          </div>
+
+          <div class="bg-white p-5 sm:p-6 rounded-2xl border border-teal-100 shadow-2xs mt-3">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-gray-400 block mb-1">Official Parody Designation:</span>
+            <h2 id="job-result-title" class="text-lg sm:text-2xl font-bold text-[#111827] select-text">
+              <!-- Job title -->
+            </h2>
+
+            <div class="mt-4 pt-3 border-t border-gray-100 space-y-3">
+              <div>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-teal-700 block mb-0.5">Role Overview:</span>
+                <p id="job-result-summary" class="text-xs sm:text-sm text-[#374151] leading-relaxed font-medium"></p>
+              </div>
+
+              <div>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-teal-700 block mb-1">Key Responsibilities:</span>
+                <ul id="job-result-resp" class="space-y-1.5 list-none p-0">
+                  <!-- Responsibilities -->
+                </ul>
+              </div>
+
+              <div class="pt-2">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-teal-700 block mb-0.5">Required Qualifications:</span>
+                <p id="job-result-qual" class="text-xs sm:text-sm text-[#4B5563]"></p>
+              </div>
+
+              <div class="p-3.5 bg-teal-50 rounded-xl mt-2">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-teal-900 block mb-0.5">Estimated Compensation:</span>
+                <p id="job-result-comp" class="text-xs sm:text-sm text-teal-950 font-semibold"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-5 pt-3 flex flex-wrap items-center justify-between gap-3 border-t border-teal-100">
+            <div class="flex flex-wrap items-center gap-2">
+              <button 
+                type="button"
+                onclick="generateJob()"
+                class="px-4 py-2 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs sm:text-sm shadow-2xs transition flex items-center gap-1.5 cursor-pointer active:scale-[0.98]">
+                <span>🔄 Another Career</span>
+              </button>
+              <button 
+                type="button"
+                onclick="copyJobTitle()"
+                class="px-4 py-2 rounded-xl bg-white hover:bg-teal-50 text-teal-800 font-bold text-xs sm:text-sm border border-teal-300 shadow-2xs transition flex items-center gap-1.5 cursor-pointer active:scale-[0.98]">
+                <span>💼 Copy Title</span>
+              </button>
+              <button 
+                type="button"
+                onclick="copyFullJob()"
+                class="px-4 py-2 rounded-xl bg-teal-100 hover:bg-teal-200 text-teal-900 font-bold text-xs sm:text-sm border border-teal-300 transition flex items-center gap-1.5 cursor-pointer active:scale-[0.98]">
+                <span>📋 Copy Full Spec</span>
+              </button>
+            </div>
+            <span class="text-[11px] text-gray-400">100% fictional parody. HR departments may be confused.</span>
+          </div>
+        </div>
+
+        <!-- SEO Guide -->
+        <div class="mt-8 pt-8 border-t border-[#E5E7EB] space-y-4">
+          <h2 class="text-lg sm:text-xl font-bold text-[#111827]">
+            Why Parody Job Titles Are Taking Over LinkedIn
+          </h2>
+          <p class="text-xs sm:text-sm text-[#4B5563] leading-relaxed">
+            In an era where everyone is a "Growth Hacker," "Visionary Disruptor," or "Synergy Ninja," the line between authentic corporate titles and internet satire has officially dissolved. Our fake job title generator satirizes modern workplace jargon while giving you a hilarious parody role description you can proudly post in your bios.
+          </p>
+        </div>
+
       </div>
     </section>
 
@@ -969,6 +2381,16 @@
         <a href="/blame-generator" onclick="handleRouteLink(event, '/blame-generator')" class="hover:text-amber-600 transition">Blame Generator</a>
         <span class="text-gray-300" aria-hidden="true">•</span>
         <a href="/useless-degree" onclick="handleRouteLink(event, '/useless-degree')" class="hover:text-emerald-600 transition">Useless Degree</a>
+        <span class="text-gray-300" aria-hidden="true">•</span>
+        <a href="/excuse-generator" onclick="handleRouteLink(event, '/excuse-generator')" class="hover:text-blue-600 transition">Excuse Generator</a>
+        <span class="text-gray-300" aria-hidden="true">•</span>
+        <a href="/roast-generator" onclick="handleRouteLink(event, '/roast-generator')" class="hover:text-rose-600 transition">Roast Generator</a>
+        <span class="text-gray-300" aria-hidden="true">•</span>
+        <a href="/random-life-advice" onclick="handleRouteLink(event, '/random-life-advice')" class="hover:text-yellow-600 transition">Random Life Advice</a>
+        <span class="text-gray-300" aria-hidden="true">•</span>
+        <a href="/overthinking-generator" onclick="handleRouteLink(event, '/overthinking-generator')" class="hover:text-indigo-600 transition">Overthinking Generator</a>
+        <span class="text-gray-300" aria-hidden="true">•</span>
+        <a href="/fake-job-title" onclick="handleRouteLink(event, '/fake-job-title')" class="hover:text-teal-600 transition">Fake Job Title</a>
       </nav>
       <p class="text-xs sm:text-sm text-[#6B7280]">
         <strong class="text-[#111827] font-semibold">Bakwaas Center</strong> © 2026 — Making productivity optional since today.

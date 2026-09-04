@@ -8,6 +8,11 @@ import { DEGREES_LIST, renderCertificateHTML } from './certificateTemplates.js';
 import * as htmlToImage from 'html-to-image';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
+import { initExcuseGenerator } from './tools/excuseGenerator.js';
+import { initRoastGenerator } from './tools/roastGenerator.js';
+import { initAdviceGenerator } from './tools/adviceGenerator.js';
+import { initOverthinkingGenerator } from './tools/overthinkingGenerator.js';
+import { initJobGenerator } from './tools/jobGenerator.js';
 
 
 // Global State
@@ -30,34 +35,83 @@ export const ROUTES_CONFIG = {
   '/': {
     id: 'home',
     title: 'Bakwaas Center – Funny Online Tools & Time-Wasting Games',
-    description: 'Bakwaas Center features funny online tools and time-wasting fun tools including the Over-Acting Translator, Blame Generator, and Useless Degree Convocation.',
+    description: "Bakwaas Center features funny online tools and time-wasting fun for when you're bored. Try dramatic text translation, ridiculous blame excuses, and fake degrees.",
     canonical: 'https://bakwas-centre.vercel.app/',
     panelId: 'panel-home',
-    tabId: null
+    tabId: null,
+    breadcrumbName: null
   },
   '/translator': {
     id: 'translator',
-    title: 'Over-Acting Translator – Bakwaas Center',
-    description: 'Turn normal, boring sentences into full-blown dramatic Bollywood dialogues, daily soap reactions, and cinematic punchlines with 10 acting styles.',
+    title: 'Over-Acting Translator – Turn Normal Text Dramatic | Bakwaas Center',
+    description: 'Turn normal, boring text into over-dramatic Bollywood dialogues, soap opera gasps, and Shakespearean monologues with the Over-Acting Translator.',
     canonical: 'https://bakwas-centre.vercel.app/translator',
     panelId: 'panel-translator',
-    tabId: 'translator'
+    tabId: 'translator',
+    breadcrumbName: 'Over-Acting Translator'
   },
   '/blame-generator': {
     id: 'blame',
-    title: 'Blame Generator – Bakwaas Center',
-    description: 'Scientifically crafted and astrologically peer-unreviewed excuses to deflect all responsibility for lateness, laziness, and daily failures.',
+    title: 'Blame Generator – Generate Funny Blame Ideas | Bakwaas Center',
+    description: 'Generate hilarious and unassailable excuses to deflect blame for being late, skipping gym, or procrastinating. Random funny excuses for any situation.',
     canonical: 'https://bakwas-centre.vercel.app/blame-generator',
     panelId: 'panel-blame',
-    tabId: 'blame'
+    tabId: 'blame',
+    breadcrumbName: 'Blame Generator'
   },
   '/useless-degree': {
     id: 'degree',
-    title: 'Useless Degree Generator – Bakwaas Center',
-    description: 'Graduate in Overthinking, Meme Analysis, or Sarcasm. Create, customize, and download personalized high-resolution parody degree certificates.',
+    title: 'Useless Degree Generator – Create a Funny Fake Degree | Bakwaas Center',
+    description: 'Create and download completely unnecessary fake degrees in Overthinking, Meme Analysis, and Procrastination with authentic parody signatures and seals.',
     canonical: 'https://bakwas-centre.vercel.app/useless-degree',
     panelId: 'panel-degree',
-    tabId: 'degree'
+    tabId: 'degree',
+    breadcrumbName: 'Useless Degree Generator'
+  },
+  '/excuse-generator': {
+    id: 'excuse',
+    title: 'Excuse Generator – Generate Funny & Absurd Excuses | Bakwaas Center',
+    description: 'Generate hilarious, unassailable, and creative excuses for being late, skipping homework, missed work deadlines, and social events.',
+    canonical: 'https://bakwas-centre.vercel.app/excuse-generator',
+    panelId: 'panel-excuse',
+    tabId: 'excuse',
+    breadcrumbName: 'Excuse Generator'
+  },
+  '/roast-generator': {
+    id: 'roast',
+    title: 'Roast Generator – Playful & Savage Comedy Roasts | Bakwaas Center',
+    description: 'Generate hilarious, playful, and fictional roasts with Mild, Savage, and Absurd intensity modes. Harmless comedy for friends and fun.',
+    canonical: 'https://bakwas-centre.vercel.app/roast-generator',
+    panelId: 'panel-roast',
+    tabId: 'roast',
+    breadcrumbName: 'Roast Generator'
+  },
+  '/random-life-advice': {
+    id: 'advice',
+    title: 'Random Life Advice – Hilarious & Questionable Wisdom | Bakwaas Center',
+    description: 'Get completely unsolicited, wildly questionable, and funny life advice across Productivity, Money, School, Social, and Everyday Life.',
+    canonical: 'https://bakwas-centre.vercel.app/random-life-advice',
+    panelId: 'panel-advice',
+    tabId: 'advice',
+    breadcrumbName: 'Random Life Advice'
+  },
+  '/overthinking-generator': {
+    id: 'overthinking',
+    title: 'Overthinking Generator – Turn Normal Events Into Catastrophes | Bakwaas Center',
+    description: 'Enter any simple situation and watch it spiral into an escalating 5-step chain of overthinking, paranoia, and cosmic absurdity.',
+    canonical: 'https://bakwas-centre.vercel.app/overthinking-generator',
+    panelId: 'panel-overthinking',
+    tabId: 'overthinking',
+    breadcrumbName: 'Overthinking Generator'
+  },
+  '/fake-job-title': {
+    id: 'job',
+    title: 'Fake Job Title Generator – Ridiculous Parody Careers | Bakwaas Center',
+    description: 'Generate hilarious corporate, tech, student, and internet job titles with absurd seniority levels, departments, and fictional duties.',
+    canonical: 'https://bakwas-centre.vercel.app/fake-job-title',
+    panelId: 'panel-job',
+    tabId: 'job',
+    breadcrumbName: 'Fake Job Title Generator'
   }
 };
 
@@ -113,6 +167,38 @@ function updateRouteSEO(routeKey) {
 
   const twUrl = document.querySelector('meta[name="twitter:url"]');
   if (twUrl) twUrl.setAttribute('content', config.canonical);
+
+  // 6. BreadcrumbList Structured Data (accords with visible navigation)
+  let breadcrumbScript = document.getElementById('schema-breadcrumbs');
+  if (config.breadcrumbName) {
+    if (!breadcrumbScript) {
+      breadcrumbScript = document.createElement('script');
+      breadcrumbScript.id = 'schema-breadcrumbs';
+      breadcrumbScript.type = 'application/ld+json';
+      document.head.appendChild(breadcrumbScript);
+    }
+    const breadcrumbData = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://bakwas-centre.vercel.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": config.breadcrumbName,
+          "item": config.canonical
+        }
+      ]
+    };
+    breadcrumbScript.textContent = JSON.stringify(breadcrumbData);
+  } else if (breadcrumbScript) {
+    breadcrumbScript.remove();
+  }
 }
 
 // -----------------------------------------------------------------------------
@@ -129,7 +215,17 @@ window.applyRoute = function(routePath, shouldScroll = false) {
   updateRouteSEO(normalized);
 
   // 2. Toggle Panel Visibility
-  const panels = ['panel-home', 'panel-translator', 'panel-blame', 'panel-degree'];
+  const panels = [
+    'panel-home',
+    'panel-translator',
+    'panel-blame',
+    'panel-degree',
+    'panel-excuse',
+    'panel-roast',
+    'panel-advice',
+    'panel-overthinking',
+    'panel-job'
+  ];
   panels.forEach(pid => {
     const el = document.getElementById(pid);
     if (!el) return;
@@ -143,7 +239,18 @@ window.applyRoute = function(routePath, shouldScroll = false) {
   });
 
   // 3. Update Navigation Tab Visual States
-  const tabs = ['translator', 'blame', 'degree'];
+  const tabs = ['translator', 'blame', 'degree', 'excuse', 'roast', 'advice', 'overthinking', 'job'];
+  const tabColorMap = {
+    'translator': { border: 'border-purple-400', ring: 'ring-purple-200' },
+    'blame': { border: 'border-amber-400', ring: 'ring-amber-200' },
+    'degree': { border: 'border-emerald-400', ring: 'ring-emerald-200' },
+    'excuse': { border: 'border-blue-400', ring: 'ring-blue-200' },
+    'roast': { border: 'border-rose-400', ring: 'ring-rose-200' },
+    'advice': { border: 'border-yellow-400', ring: 'ring-yellow-200' },
+    'overthinking': { border: 'border-indigo-400', ring: 'ring-indigo-200' },
+    'job': { border: 'border-teal-400', ring: 'ring-teal-200' }
+  };
+
   tabs.forEach(t => {
     const btn = document.getElementById(`tab-btn-${t}`);
     const indicator = btn ? btn.querySelector('.active-indicator') : null;
@@ -152,13 +259,8 @@ window.applyRoute = function(routePath, shouldScroll = false) {
       if (btn) {
         btn.setAttribute('aria-selected', 'true');
         btn.classList.remove('border-[#E5E7EB]');
-        if (t === 'translator') {
-          btn.classList.add('border-purple-400', 'ring-2', 'ring-purple-200', 'shadow-xs');
-        } else if (t === 'blame') {
-          btn.classList.add('border-amber-400', 'ring-2', 'ring-amber-200', 'shadow-xs');
-        } else {
-          btn.classList.add('border-emerald-400', 'ring-2', 'ring-emerald-200', 'shadow-xs');
-        }
+        const color = tabColorMap[t] || { border: 'border-indigo-400', ring: 'ring-indigo-200' };
+        btn.classList.add(color.border, 'ring-2', color.ring, 'shadow-xs');
       }
       if (indicator) indicator.classList.remove('hidden');
     } else {
@@ -168,6 +270,11 @@ window.applyRoute = function(routePath, shouldScroll = false) {
           'border-purple-400', 'ring-purple-200',
           'border-amber-400', 'ring-amber-200',
           'border-emerald-400', 'ring-emerald-200',
+          'border-blue-400', 'ring-blue-200',
+          'border-rose-400', 'ring-rose-200',
+          'border-yellow-400', 'ring-yellow-200',
+          'border-indigo-400', 'ring-indigo-200',
+          'border-teal-400', 'ring-teal-200',
           'ring-2', 'shadow-xs'
         );
         btn.classList.add('border-[#E5E7EB]');
@@ -206,7 +313,12 @@ window.switchTab = function(tabId) {
   const routeMap = {
     'translator': '/translator',
     'blame': '/blame-generator',
-    'degree': '/useless-degree'
+    'degree': '/useless-degree',
+    'excuse': '/excuse-generator',
+    'roast': '/roast-generator',
+    'advice': '/random-life-advice',
+    'overthinking': '/overthinking-generator',
+    'job': '/fake-job-title'
   };
   const targetRoute = routeMap[tabId] || '/';
   window.navigateToRoute(targetRoute, false);
@@ -218,7 +330,16 @@ window.addEventListener('popstate', () => {
 });
 
 window.openRandomBakwaas = function() {
-  const toolRoutes = ['/translator', '/blame-generator', '/useless-degree'];
+  const toolRoutes = [
+    '/translator',
+    '/blame-generator',
+    '/useless-degree',
+    '/excuse-generator',
+    '/roast-generator',
+    '/random-life-advice',
+    '/overthinking-generator',
+    '/fake-job-title'
+  ];
   const candidates = toolRoutes.filter(r => r !== window.AppState.currentRoute);
   const picked = candidates.length > 0
     ? candidates[Math.floor(Math.random() * candidates.length)]
@@ -226,18 +347,33 @@ window.openRandomBakwaas = function() {
 
   window.navigateToRoute(picked, true);
 
-  if (picked === '/blame-generator') {
+  if (picked === '/blame-generator' && window.generateBlame) {
     window.generateBlame();
-  } else if (picked === '/translator') {
+  } else if (picked === '/translator' && window.setTranslatorSample) {
     const samples = ["I'm hungry", "I'm late", "My phone died", "I didn't study", "I need money"];
     const s = samples[Math.floor(Math.random() * samples.length)];
     window.setTranslatorSample(s);
+  } else if (picked === '/excuse-generator' && window.generateExcuse) {
+    window.generateExcuse();
+  } else if (picked === '/roast-generator' && window.generateRoast) {
+    window.generateRoast();
+  } else if (picked === '/random-life-advice' && window.generateAdvice) {
+    window.generateAdvice();
+  } else if (picked === '/overthinking-generator' && window.generateOverthinking) {
+    window.generateOverthinking();
+  } else if (picked === '/fake-job-title' && window.generateJob) {
+    window.generateJob();
   }
 
   const toolNames = {
     '/translator': 'Over-Acting Translator 🎭',
     '/blame-generator': 'The Blame Generator 🧠',
-    '/useless-degree': 'Useless Degree Convocation 📜'
+    '/useless-degree': 'Useless Degree Convocation 📜',
+    '/excuse-generator': 'Excuse Generator 🛡️',
+    '/roast-generator': 'Roast Generator 🔥',
+    '/random-life-advice': 'Random Life Advice 💡',
+    '/overthinking-generator': 'Overthinking Generator 🌀',
+    '/fake-job-title': 'Fake Job Title Generator 💼'
   };
   showToast(`Random Bakwaas: Opened ${toolNames[picked]}! 🎲`);
 };
@@ -276,6 +412,36 @@ window.fixMyBoredom = function() {
       badge: 'Academic Imposter 📜',
       msg: 'Academic life is exhausting. Award yourself a PhD in Reel Scrolling with an official custom authority signature!',
       btnText: 'Confer Your Useless Degree →'
+    },
+    {
+      tool: 'excuse',
+      badge: 'Master Alibi 🛡️',
+      msg: 'Skipped homework or dodged a work meeting? Create an unassailable alibi that defies all earthly inspection!',
+      btnText: 'Generate Master Excuse →'
+    },
+    {
+      tool: 'roast',
+      badge: 'Comic Roaster 🔥',
+      msg: 'Friends feeling too relaxed? Deliver a completely harmless, razor-sharp parody roast across three intensity levels!',
+      btnText: 'Ignite Playful Roast →'
+    },
+    {
+      tool: 'advice',
+      badge: 'Uncertified Wisdom 💡',
+      msg: 'Life choices feeling too reasonable? Consult our questionably useful proverbs on procrastination and money!',
+      btnText: 'Get Questionable Advice →'
+    },
+    {
+      tool: 'overthinking',
+      badge: 'Spiral Simulator 🌀',
+      msg: 'Did someone text you "k."? Watch a completely harmless message spiral into an apocalyptic cosmic catastrophe!',
+      btnText: 'Overthink Everything →'
+    },
+    {
+      tool: 'job',
+      badge: 'Corporate Parody 💼',
+      msg: 'Need a new resume boost? Become the Senior Vice President of Hallway Hesitation with full fictional credentials!',
+      btnText: 'Invent Fake Job Title →'
     }
   ];
 
@@ -1005,11 +1171,19 @@ function showToast(msg) {
   }, 2600);
 }
 
+window.copyTextHelper = copyTextHelper;
+window.showToast = showToast;
+
 // -----------------------------------------------------------------------------
 // INITIALIZATION
 // -----------------------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
   window.initCustomDegreeDropdown();
+  if (window.initExcuseGenerator) window.initExcuseGenerator();
+  if (window.initRoastGenerator) window.initRoastGenerator();
+  if (window.initAdviceGenerator) window.initAdviceGenerator();
+  if (window.initOverthinkingGenerator) window.initOverthinkingGenerator();
+  if (window.initJobGenerator) window.initJobGenerator();
   // Hydrate initial view and per-route SEO from the browser's current URL
   window.applyRoute(window.location.pathname, false);
 });
