@@ -34,8 +34,8 @@ window.AppState = {
 export const ROUTES_CONFIG = {
   '/': {
     id: 'home',
-    title: 'Bakwaas Center – Funny Online Tools & Time-Wasting Games',
-    description: "Bakwaas Center features funny online tools and time-wasting fun for when you're bored. Try dramatic text translation, ridiculous blame excuses, and fake degrees.",
+    title: 'Bakwaas Center – Funny Tools, Random Generators & Boredom Busters',
+    description: 'Discover funny online tools, random generators, boredom breakers and completely unnecessary internet fun at Bakwaas Center.',
     canonical: 'https://bakwas-centre.vercel.app/',
     panelId: 'panel-home',
     tabId: null,
@@ -44,7 +44,7 @@ export const ROUTES_CONFIG = {
   '/translator': {
     id: 'translator',
     title: 'Over-Acting Translator – Turn Normal Text Dramatic | Bakwaas Center',
-    description: 'Turn normal, boring text into over-dramatic Bollywood dialogues, soap opera gasps, and Shakespearean monologues with the Over-Acting Translator.',
+    description: 'Turn normal text into dramatic text with the Over-Acting Translator. Generate over-dramatic Bollywood dialogues, soap opera gasps, and Shakespearean monologues.',
     canonical: 'https://bakwas-centre.vercel.app/translator',
     panelId: 'panel-translator',
     tabId: 'translator',
@@ -53,7 +53,7 @@ export const ROUTES_CONFIG = {
   '/blame-generator': {
     id: 'blame',
     title: 'Blame Generator – Generate Funny Blame Ideas | Bakwaas Center',
-    description: 'Generate hilarious and unassailable excuses to deflect blame for being late, skipping gym, or procrastinating. Random funny excuses for any situation.',
+    description: 'Generate funny blame ideas and ridiculous excuses with the Blame Generator. Deflect responsibility for being late or procrastinating with random funny excuses.',
     canonical: 'https://bakwas-centre.vercel.app/blame-generator',
     panelId: 'panel-blame',
     tabId: 'blame',
@@ -62,7 +62,7 @@ export const ROUTES_CONFIG = {
   '/useless-degree': {
     id: 'degree',
     title: 'Useless Degree Generator – Create a Funny Fake Degree | Bakwaas Center',
-    description: 'Create and download completely unnecessary fake degrees in Overthinking, Meme Analysis, and Procrastination with authentic parody signatures and seals.',
+    description: 'Create a funny fake degree certificate in Overthinking, Meme Analysis, or Procrastination. Download and share completely unnecessary parody diplomas.',
     canonical: 'https://bakwas-centre.vercel.app/useless-degree',
     panelId: 'panel-degree',
     tabId: 'degree',
@@ -70,8 +70,8 @@ export const ROUTES_CONFIG = {
   },
   '/excuse-generator': {
     id: 'excuse',
-    title: 'Excuse Generator – Generate Funny & Absurd Excuses | Bakwaas Center',
-    description: 'Generate hilarious, unassailable, and creative excuses for being late, skipping homework, missed work deadlines, and social events.',
+    title: 'Excuse Generator – Generate Funny Excuses | Bakwaas Center',
+    description: 'Generate funny excuses and random alibis for school, work, being late, or social events with the Excuse Generator on Bakwaas Center.',
     canonical: 'https://bakwas-centre.vercel.app/excuse-generator',
     panelId: 'panel-excuse',
     tabId: 'excuse',
@@ -79,8 +79,8 @@ export const ROUTES_CONFIG = {
   },
   '/roast-generator': {
     id: 'roast',
-    title: 'Roast Generator – Playful & Savage Comedy Roasts | Bakwaas Center',
-    description: 'Generate hilarious, playful, and fictional roasts with Mild, Savage, and Absurd intensity modes. Harmless comedy for friends and fun.',
+    title: 'Roast Generator – Generate Funny Roasts | Bakwaas Center',
+    description: 'Generate funny roasts and playful comedy burns across Mild, Savage, and Absurd tiers. Harmless, friendly teasing for you and your friends.',
     canonical: 'https://bakwas-centre.vercel.app/roast-generator',
     panelId: 'panel-roast',
     tabId: 'roast',
@@ -88,17 +88,17 @@ export const ROUTES_CONFIG = {
   },
   '/random-life-advice': {
     id: 'advice',
-    title: 'Random Life Advice – Hilarious & Questionable Wisdom | Bakwaas Center',
-    description: 'Get completely unsolicited, wildly questionable, and funny life advice across Productivity, Money, School, Social, and Everyday Life.',
+    title: 'Random Life Advice Generator – Get Funny Advice | Bakwaas Center',
+    description: 'Get funny advice and completely random life wisdom for productivity, money, school, and awkward social situations with the Random Life Advice Generator.',
     canonical: 'https://bakwas-centre.vercel.app/random-life-advice',
     panelId: 'panel-advice',
     tabId: 'advice',
-    breadcrumbName: 'Random Life Advice'
+    breadcrumbName: 'Random Life Advice Generator'
   },
   '/overthinking-generator': {
     id: 'overthinking',
-    title: 'Overthinking Generator – Turn Normal Events Into Catastrophes | Bakwaas Center',
-    description: 'Enter any simple situation and watch it spiral into an escalating 5-step chain of overthinking, paranoia, and cosmic absurdity.',
+    title: 'Overthinking Generator – Turn Minor Things into Crises | Bakwaas Center',
+    description: 'Turn any innocent situation into an escalating 5-step overthinking spiral. Enter a normal moment and watch the Overthinking Generator invent cosmic chaos.',
     canonical: 'https://bakwas-centre.vercel.app/overthinking-generator',
     panelId: 'panel-overthinking',
     tabId: 'overthinking',
@@ -106,8 +106,8 @@ export const ROUTES_CONFIG = {
   },
   '/fake-job-title': {
     id: 'job',
-    title: 'Fake Job Title Generator – Ridiculous Parody Careers | Bakwaas Center',
-    description: 'Generate hilarious corporate, tech, student, and internet job titles with absurd seniority levels, departments, and fictional duties.',
+    title: 'Fake Job Title Generator – Funny Corporate Job Titles | Bakwaas Center',
+    description: 'Create funny job titles and ridiculous parody career descriptions across corporate, tech, and student sectors with the Fake Job Title Generator.',
     canonical: 'https://bakwas-centre.vercel.app/fake-job-title',
     panelId: 'panel-job',
     tabId: 'job',
